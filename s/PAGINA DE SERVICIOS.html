@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios para Registro de Empresas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        
+        header {
+            background-color: #007BFF; 
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin: 0;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #007BFF;
+            color: white;
+            transform: translateY(-2px);
+        }
+        section {
+            margin: 30px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #007BFF;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            background-color: #f1f1f1;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007BFF;
+            color: white;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                font-size: 14px;
+            }
+
+            section {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Servicios para Registro de Empresas</h1>
+</header>
+<nav>
+    <a href="#requisitos"><i class="icon">&#x1F4C5;</i>Requisitos</a>
+    <a href="#documentacion"><i class="icon">&#x1F4D6;</i>Documentación Requerida</a>
+    <a href="#registro"><i class="icon">&#x1F4DD;</i>Proceso de Registro</a>
+    <a href="#beneficios"><i class="icon">&#x1F4B8;</i>Beneficios</a>
+</nav>
+<section id="requisitos">
+    <h2>Requisitos para Registro</h2>
+    <p>Para registrar tu empresa en nuestro sistema, es necesario cumplir con ciertos requisitos básicos que aseguren que todos los datos sean correctos y estén completos.</p>
+    <ul>
+        <li>Documento de identidad del representante legal.</li>
+        <li>Acta constitutiva de la empresa.</li>
+        <li>Dirección fiscal y datos de contacto.</li>
+        <li>Registro de actividad económica (CIIU o código similar).</li>
+        <li>Comprobante de dirección (recibo de servicios públicos, por ejemplo).</li>
+    </ul>
+</section>
+<section id="documentacion">
+    <h2>Documentación Requerida</h2>
+    <p>Para completar tu solicitud de registro, deberás cargar los siguientes documentos en formato digital:</p>
+    <ul>
+        <li>RUC (Registro Único de Contribuyentes) o equivalente.</li>
+        <li>Cédula o pasaporte del representante legal.</li>
+        <li>Certificado de existencia o constitución de la empresa.</li>
+        <li>Comprobante de pago de las tarifas administrativas (si aplica).</li>
+        <li>Formulario de registro en línea completado y firmado electrónicamente.</li>
+    </ul>
+</section>
+<section id="registro">
+    <h2>Proceso de Registro</h2>
+    <p>El proceso de registro de empresas es sencillo y consta de los siguientes pasos:</p>
+    <ul>
+        <li>1. Completar el formulario de registro en línea con la información de tu empresa.</li>
+        <li>2. Subir los documentos solicitados (de acuerdo con la lista anterior).</li>
+        <li>3. Revisar y confirmar los datos antes de enviarlos.</li>
+        <li>4. Pagar la tarifa administrativa (si corresponde).</li>
+        <li>5. Esperar la validación y aprobación de tu registro.</li>
+        <li>6. Recibir la confirmación y acceso a los servicios de nuestra plataforma.</li>
+    </ul>
+</section>
+ <section id="beneficios">
+    <h2>Beneficios del Registro</h2>
+    <p>Al registrar tu empresa en nuestra plataforma, obtendrás acceso a múltiples ventajas que facilitarán la gestión y el crecimiento de tu negocio:</p>
+    <ul>
+        <li>Acceso a herramientas digitales exclusivas para empresas registradas.</li>
+        <li>Posibilidad de obtener financiamiento o subsidios para pequeñas empresas.</li>
+        <li>Visibilidad en nuestra plataforma para atraer nuevos clientes.</li>
+        <li>Soporte personalizado para resolver cualquier duda o problema relacionado con el registro y gestión de tu empresa.</li>
+        <li>Acceso a actualizaciones y novedades de nuestra plataforma y servicios.</li>
+    </ul>
+    <a href="mailto:support@empresa.com" class="btn">Inicia tu Registro</a>
+</section>
+<footer>
+    <p>&copy; Todos los derechos reservados 2024 S-EMPRESA, Servicios de Registro de Empresas.</p>
+</footer>
+
+</body>
+</html>

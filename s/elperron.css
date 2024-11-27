@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+:root {
+    --color-barra-lateral:rgb(255,255,255);
+
+    --color-texto:rgb(0,0,0);
+    --color-texto-menu:rgb(134,136,144);
+
+    --color-menu-hover:rgb(238,238,238);
+    --color-menu-hover-texto:rgb(0,0,0);
+
+    --color-boton:rgb(0,0,0);
+    --color-boton-texto:rgb(255,255,255);
+
+    --color-linea:rgb(241,241,241);
+
+    --color-switch-base:rgb(201,202,206);
+    --color-switch-circulo:rgb(241,241,241);
+}
+.dark-mode{
+    --color-barra-lateral:rgb(44,45,49);
+
+    --color-texto:rgb(255,255,255);
+    --color-texto-menu:rgb(110,110,117);
+
+    --color-menu-hover:rgb(0,0,0);
+    --color-menu-hover-texto:rgb(238,238,238);
+
+    --color-boton:rgb(255,255,255);
+    --color-boton-texto:rgb(0,0,0);
+
+    --color-linea:rgb(71,70,78);
+
+    --color-switch-base:rgb(15, 122, 252);
+    --color-switch-circulo:rgb(0,0,0);
+}
+
+/*aqui cambia el tamaño del padre como tal de la pagina */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", serif;
+}
+
+body {
+    height: 100vh;/*que el color se muestre en todo lo largo de la pagina web*/
+    width: 100%;
+    background-color: aqua;
+    opacity: initial 5;
+}
+
+.barra-lateral {
+  width: 250px;
+  height: 100%;
+  overflow: hidden;
+  padding: 20px 15px;
+  background-color: var(--color-barra-lateral);
+  transition: width 0.5s ease,background-color 0.3s ease;
+
+}
+.mini-barra-lateral {
+    width: 80px;/*que el menu lateral se encoja*/
+}
+
+
+
+.barra-lateral span {
+    font-size: 18px;
+    text-align: left;
+    width: 100px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.5s ease,width 0.5s ease;
+}
+.barra-lateral span.oculto {
+    opacity: 0;
+    width: 0;
+}
+
+
+.barra-lateral .nombre-pag {
+    width: 100%;
+    height: 45px;
+    color: var(--color-texto);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.barra-lateral .nombre-pag img {
+   max-width: 55px; 
+   cursor: pointer;
+}
+.barra-lateral .nombre-pag span{
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+
+.barra-lateral .boton {
+   width: 100%; 
+   height: 45px;
+   margin-bottom: 20px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   border: none;
+   border-radius: 10px;
+   background-color: var(--color-boton);
+   color: var(--color-boton-texto);
+   transition: all 0.5s ease;
+}
+.barra-lateral .boton ion-icon {
+    min-width: 50px;
+    font-size: 25px;
+}
+
+
+
+
+.barra-lateral .navegacion li {
+    list-style: none;
+    display: flex;
+    margin-bottom: 5px;
+}
+.barra-lateral .navegacion a {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--color-texto-menu);
+}
+.barra-lateral .navegacion a:hover {
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+.barra-lateral .navegacion ion-icon {
+    min-width: 50px;
+    font-size: 20px;
+}
+.barra-lateral .linea {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-linea);
+}
+.barra-lateral .modo-obscuro {
+   width: 100%; 
+   margin-bottom: 80px;
+   border-radius: 10px;
+   display: flex;
+   justify-content: space-between;
+}
+.barra-lateral .modo-obscuro .info{
+    width: 150px;
+    height: 45px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-menu);
+}
+.barra-lateral .modo-obscuro ion-icon{
+    width: 50px;
+    font-size: 20px;
+}
+
+.barra-lateral .modo-obscuro .switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 45px;
+    cursor: pointer;
+}
+.barra-lateral .modo-obscuro .base{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    background-color: var(--color-switch-base);
+    border-radius: 50px;
+}
+.barra-lateral .modo-obscuro .circulo{
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    background-color: var(--color-switch-circulo);
+    border-radius: 50%;
+    left: 2px;
+    transition: left 0.5s ease;
+}
+.barra-lateral .modo-obscuro .circulo.prendido{
+    left: 15px;
+}
+
+
+.barra-lateral .usuario{
+    width: 100%;
+    display: flex;
+}
+.barra-lateral .usuario img{
+    width: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+}
+.barra-lateral .usuario .info-usuario{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:var(--color-texto);
+    overflow: hidden;
+}
+.barra-lateral .usuario .nombre-imail{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.barra-lateral .usuario .nombre{
+    font-size: 15px;
+    font-weight: 600;
+}
+.barra-lateral .usuario .imail{
+    font-size: 10px;
+}
+.barra-lateral .usuario ion-icon{
+    font-size: 20px;
+    cursor: pointer;
+}
