@@ -1,0 +1,332 @@
+*{
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding: 2rem;
+    box-sizing: border-box;
+}
+
+/*Codigo de portada*/
+
+.home {
+    width: 100%;         
+    min-height: 420px;
+    background-color: #2196f3;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-text{
+    color: #fff;
+    text-align: center;
+}
+
+.home-title{
+    font-size: 3.5rem;
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+/*Codigo  menu-filter parte inferior*/
+
+.menu-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.filter-item{
+    font-size: 1.2rem;
+    font-weight:500;
+    cursor: pointer;
+}
+
+.active-filter{
+    background: #2196f3; /*color del fondo del menu (All)*/
+    color: #fff; /*color de la letra (all)*/
+    padding: 4px 10px; /*relleno 4px de altura y 10px de ancho*/
+    border-radius: 4px; /*bordes redondeados de 4px*/
+}
+
+
+
+
+
+/*post info 1*/
+
+
+
+.post{
+    width: 82%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    justify-content: center;
+    gap: 1.5rem;
+   margin-top: 30px;
+}
+
+.post-box{
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 3px 10px 1px #b1b1b1;
+    border-radius: 0.5rem;
+}
+
+.post-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+}
+    
+
+.category{
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #2196f3;
+    margin-top: 8px;
+   
+}
+
+.post-title{
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 4px;
+    color: black;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+
+}
+
+
+.post-date{
+    display: flex;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 4px;
+
+}
+
+
+.post-descripcion{
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin: 5px 0 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+
+}
+
+
+/*perfil*/
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #fff;
+}
+
+.profile-name{
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+
+/*footer*/
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.social{
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*prueba*/
+
+/* Contenedor del header que maneja el espacio interno */
+.container_header {
+    max-width: 1200px; /* El ancho máximo del contenedor será de 1200px */
+    height: 100%; /* El contenedor ocupará el 100% de la altura disponible */
+    display: flex; /* Usa Flexbox para el layout */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del eje horizontal con espacio entre ellos */
+    margin: auto; /* Centra el contenedor en la página */
+    padding: 5px 20px; /* Añade un espacio de 20px a los lados del contenedor */
+    
+}
+
+/* Estilo para el logo dentro del header */
+header .logo {
+    height: 100%; /* El logo ocupa toda la altura del header */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    
+}
+
+/* Estilo para la imagen del logo */
+.logo img {
+    width: 50px; /* La imagen tendrá un ancho fijo de 50px */
+}
+
+/* Contenedor para la barra de navegación dentro del header */
+.container_nav {
+    position: relative; /* El contenedor de la navegación tiene posición relativa */
+    height: 100%; /* La altura del contenedor es 100% */
+    padding-top: 15px;
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    height: 100%; /* La barra de navegación ocupa el 100% de la altura */
+}
+
+/* Estilo para la lista de navegación */
+nav ul {
+    height: 100%; /* La lista ocupa el 100% de la altura */
+    display: flex; /* Usa Flexbox para distribuir los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilo para cada item dentro de la lista de navegación */
+nav ul li {
+    margin: 0px 20px; /* Añade un margen de 20px a cada lado de los elementos de la lista */
+    list-style: none; /* Elimina el estilo de lista predeterminado (como los puntos) */
+}
+
+/* Estilo para los enlaces dentro de los items de la lista de navegación */
+nav ul li a {
+    color: #000; /* El color del texto será negro */
+    font-size: 16px; /* El tamaño de la fuente será de 16px */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    
+}
+
+/* Estilo para la barra de navegación cuando tiene la clase nav_mod */
+.nav_mod {
+    height: 70px; /* La barra de navegación tendrá una altura de 70px */
+    box-shadow: 1px 1px 10px 0px #00000010; /* Añade una sombra sutil a la barra */
+    background: white; /* El fondo será blanco */
+}
+
+/* Estilo para el botón de selección (por ejemplo, un botón de acción) */
+.select {
+    background: rgb(255, 94, 0); /* El fondo del botón será un color naranja */
+    padding: 10px 30px; /* Añade un relleno de 10px arriba y abajo, y 30px a los lados */
+    color: white; /* El texto será de color blanco */
+    border-radius: 20px; /* Las esquinas estarán redondeadas con un radio de 20px */
+    transition: all 300ms; /* Agrega una transición suave para todos los cambios */
+}
+
+/* Estilo para el botón de selección cuando se pasa el cursor sobre él */
+.select:hover {
+    box-shadow: 1px 1px 30px -10px #20202049; /* Añade una sombra más pronunciada cuando se pasa el cursor */
+    color: #000; /* Cambia el color del texto a negro cuando se pasa el cursor */
+}
+
+/* Estilo para el botón de menú */
+.btn_menu {
+    width: 50px; /* El botón tendrá un ancho de 50px */
+    height: 50px; /* El botón tendrá una altura de 50px */
+    font-size: 20px; /* El tamaño de la fuente será de 20px */
+    cursor: pointer; /* El cursor será un puntero para indicar que es interactivo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    border-radius: 50%; /* Hace que el botón tenga bordes redondeados (circular) */
+    transition: background 300ms; /* Agrega una transición suave al fondo del botón */
+    display: none; /* El botón de menú no se mostrará por defecto */
+}
+
+/* Estilo para el botón de menú cuando el cursor pasa sobre él */
+.btn_menu:hover {
+    background: rgba(0,0,0,0.5); /* El fondo se vuelve semitransparente y negro cuando se pasa el cursor */
+}
+

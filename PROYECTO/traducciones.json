@@ -1,0 +1,143 @@
+{
+    "es": { 
+      "ini": "Inicio",
+      "blo": "Blog",
+      "per": "Perfil",
+      "emp": "Empresa",
+      "ser": "SERVI"
+    },
+    "en": { 
+      "ini": "Home",
+      "blo": "Blog",
+      "per": "Profile",
+      "emp": "Company",
+      "ser": "SERVI"
+    },
+    "ru": { 
+      "ini": "Главная",
+      "blo": "Блог",
+      "per": "Профиль",
+      "emp": "Компания",
+      "ser": "СЕРВИ"
+    },
+    "de": { 
+      "ini": "Startseite",
+      "blo": "Blog",
+      "per": "Profil",
+      "emp": "Unternehmen",
+      "ser": "SERVI"
+    },
+    "pt": { 
+      "ini": "Início",
+      "blo": "Blog",
+      "per": "Perfil",
+      "emp": "Empresa",
+      "ser": "SERVI"
+    },
+    "fr": { 
+      "ini": "Accueil",
+      "blo": "Blog",
+      "per": "Profil",
+      "emp": "Entreprise",
+      "ser": "SERVI"
+    },
+    "it": { 
+      "ini": "Home",
+      "blo": "Blog",
+      "per": "Profilo",
+      "emp": "Azienda",
+      "ser": "SERVI"
+    },
+    "ja": { 
+      "ini": "ホーム",
+      "blo": "ブログ",
+      "per": "プロフィール",
+      "emp": "会社",
+      "ser": "SERVI"
+    },
+    "ar": { 
+      "ini": "الصفحة الرئيسية",
+      "blo": "مدونة",
+      "per": "الملف الشخصي",
+      "emp": "شركة",
+      "ser": "SERVI"
+    },
+    "zh": { 
+      "ini": "主页",
+      "blo": "博客",
+      "per": "个人资料",
+      "emp": "公司",
+      "ser": "SERVI"
+    },
+    "ko": { 
+      "ini": "홈",
+      "blo": "블로그",
+      "per": "프로필",
+      "emp": "회사",
+      "ser": "SERVI"
+    },
+    "hi": { 
+      "ini": "मुखपृष्ठ",
+      "blo": "ब्लॉग",
+      "per": "प्रोफ़ाइल",
+      "emp": "कंपनी",
+      "ser": "SERVI"
+    },
+    "tr": { 
+      "ini": "Ana Sayfa",
+      "blo": "Blog",
+      "per": "Profil",
+      "emp": "Şirket",
+      "ser": "SERVI"
+    },
+    "pl": { 
+      "ini": "Strona główna",
+      "blo": "Blog",
+      "per": "Profil",
+      "emp": "Firma",
+      "ser": "SERVI"
+    },
+    "nl": { 
+      "ini": "Home",
+      "blo": "Blog",
+      "per": "Profiel",
+      "emp": "Bedrijf",
+      "ser": "SERVI"
+    },
+    "sv": { 
+      "ini": "Hem",
+      "blo": "Blogg",
+      "per": "Profil",
+      "emp": "Företag",
+      "ser": "SERVI"
+    },
+    "he": { 
+      "ini": "דף הבית",
+      "blo": "בלוג",
+      "per": "פרופיל",
+      "emp": "חברה",
+      "ser": "SERVI"
+    },
+    "uk": { 
+      "ini": "Головна",
+      "blo": "Блог",
+      "per": "Профіль",
+      "emp": "Компанія",
+      "ser": "SERVI"
+    },
+    "el": { 
+      "ini": "Αρχική",
+      "blo": "Ιστολόγιο",
+      "per": "Προφίλ",
+      "emp": "Εταιρεία",
+      "ser": "SERVI"
+    },
+    "id": { 
+      "ini": "Beranda",
+      "blo": "Blog",
+      "per": "Profil",
+      "emp": "Perusahaan",
+      "ser": "SERVI"
+    }
+  }
+  
