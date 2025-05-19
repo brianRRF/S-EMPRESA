@@ -1,0 +1,178 @@
+:root {
+    
+    --accent-color: #feba0b;
+    
+  
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+  }
+ 
+  
+
+/* Estilo para la imagen del logo */
+.logo img {
+    width: 50px; /* La imagen tendrá un ancho fijo de 50px */
+}
+  
+/*padre del registro de cambios*/
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    border-bottom: 3px solid var(--primary-color);
+    background-color: #feba0b;
+     
+  
+  }
+  
+
+
+  body.dark header {
+    background: rgba(20, 20, 20, 0.6);
+  }
+  
+  h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0;
+     
+  }
+  
+  .theme-btn {
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  .changelog-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .changelog-card {
+    background: var(--card-light);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  body.dark .changelog-card {
+    background: var(--card-dark);
+  }
+  
+  .changelog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .changelog-card h2 {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.3rem;
+  }
+  
+  .change-item {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+  
+  .change-item i {
+    margin-right: 10px;
+    font-size: 1rem;
+    transition: transform 0.3s;
+  }
+  
+  .change-item:hover i {
+    transform: scale(1.2);
+  }
+  
+  /*color del text de javascript*/
+  .change-item.new { color: #43a047; }
+  .change-item.fix { color: #e53935; }
+  .change-item.update { color: #1e88e5; }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+
+
+  
+  .subtitle {
+    color: #1e88e5; /* Azul para subtítulos */
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Estilo especial para la versión actual */
+.current-version {
+  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+  background: linear-gradient(135deg, #feba0b, #ffd54f); /* Fondo degradado amarillo */
+  color: #222; /* Texto oscuro */
+  border-left-color: #ff8f00; /* Borde lateral más llamativo */
+  position: relative; /* Para la etiqueta superior */
+}
+
+.current-version h2 {
+  color: #000; /* Título en negro */
+}
+
+/* Etiqueta superior para decir que es la versión actual */
+.current-version::before {
+  content: "🟢 Versión actual"; /* contenido de la version actual*/
+  position: absolute; 
+  top: -10px;
+  left: 20px;
+  background: #1e88e5; /* Azul llamativo */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}

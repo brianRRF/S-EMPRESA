@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cambios con Diseño</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff; /* Un azul muy claro de fondo */
+            color: #333;
+        }
+        .changelog-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12; /* Naranja para el separador */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .version-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-left: 8px solid #3498db; /* Azul como color principal de la versión */
+            transition: transform 0.2s ease-in-out;
+        }
+        .version-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .version-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #2980b9;
+        }
+        .version-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .version-header span {
+            font-size: 0.9em;
+            color: #d0e7ff;
+        }
+        .version-details {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .category {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .category h4 {
+            margin-top: 0;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .category.features h4 {
+            background-color: #2980b9; /* Un tono más oscuro de azul */
+        }
+        .category.functions h4 {
+            background-color: #f1c40f; /* Amarillo */
+            color: #333;
+        }
+        .category.improvements h4 {
+            background-color: #e67e22; /* Naranja */
+        }
+        .category ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+        .category li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .add-entry-form {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .add-entry-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        .add-entry-form input[type="text"],
+        .add-entry-form textarea {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .add-entry-form button {
+            background-color: #27ae60; /* Verde para el botón de añadir */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .add-entry-form button:hover {
+            background-color: #219653;
+        }
+        #changelog-cards {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="changelog-container">
+        <h2>Registro de Cambios</h2>
+        <div id="changelog-cards">
+            </div>
+
+        <h3>Añadir Nueva Versión</h3>
+        <div class="add-entry-form">
+            <label for="version">Versión:</label>
+            <input type="text" id="version" placeholder="Ej: 1.2.0">
+
+            <label for="date">Fecha:</label>
+            <input type="text" id="date" placeholder="YYYY-MM-DD">
+
+            <label for="features">Características:</label>
+            <textarea id="features" rows="3" placeholder="Lista de características (cada una en una nueva línea)"></textarea>
+
+            <label for="functions">Funciones:</label>
+            <textarea id="functions" rows="3" placeholder="Lista de funciones (cada una en una nueva línea)"></textarea>
+
+            <label for="improvements">Mejoras:</label>
+            <textarea id="improvements" rows="3" placeholder="Lista de mejoras (cada una en una nueva línea)"></textarea>
+
+            <button onclick="addVersion()">Añadir Versión</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadChangelog);
+
+        function loadChangelog() {
+            const changelogData = [
+                {
+                    version: "1.2.0",
+                    date: "2025-05-20",
+                    features: [
+                        "Nuevo panel de administración intuitivo.",
+                        "Integración con Google Analytics."
+                    ],
+                    functions: [
+                        "Implementación de chat en tiempo real para soporte.",
+                        "Sistema de informes personalizables."
+                    ],
+                    improvements: [
+                        "Rendimiento optimizado para carga más rápida.",
+                        "Diseño responsive mejorado para tablets."
+                    ]
+                },
+                {
+                    version: "1.1.0",
+                    date: "2025-05-16",
+                    features: [
+                        "Implementación de notificaciones push.",
+                        "Soporte para múltiples idiomas."
+                    ],
+                    functions: [
+                        "Nueva API para la integración con servicios de terceros.",
+                        "Sistema de autenticación mejorado."
+                    ],
+                    improvements: [
+                        "Optimización del rendimiento de la base de datos.",
+                        "Interfaz de usuario más intuitiva."
+                    ]
+                },
+                {
+                    version: "1.0.2",
+                    date: "2025-05-10",
+                    features: [],
+                    functions: [],
+                    improvements: [
+                        "Se corrigió un error que causaba problemas de visualización en dispositivos móviles.",
+                        "Mejoras en el rendimiento general de la aplicación.",
+                        "Actualización de dependencias de seguridad."
+                    ]
+                },
+                {
+                    version: "1.0.1",
+                    date: "2025-05-03",
+                    features: [
+                        "Integración con redes sociales."
+                    ],
+                    functions: [
+                        "Búsqueda avanzada de usuarios."
+                    ],
+                    improvements: [
+                        "Diseño de la página de perfil actualizado."
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "2025-04-25",
+                    features: [
+                        "Lanzamiento inicial de la aplicación."
+                    ],
+                    functions: [
+                        "Autenticación de usuarios básica."
+                    ],
+                    improvements: []
+                }
+            ];
+
+            const changelogCardsDiv = document.getElementById('changelog-cards');
+            changelogCardsDiv.innerHTML = '';
+
+            changelogData.forEach(entry => {
+                const versionCard = document.createElement('div');
+                versionCard.classList.add('version-card');
+
+                const versionHeader = document.createElement('div');
+                versionHeader.classList.add('version-header');
+                const versionTitle = document.createElement('h3');
+                versionTitle.textContent = `Versión ${entry.version}`;
+                const versionDate = document.createElement('span');
+                versionDate.textContent = entry.date;
+                versionHeader.appendChild(versionTitle);
+                versionHeader.appendChild(versionDate);
+                versionCard.appendChild(versionHeader);
+
+                const versionDetails = document.createElement('div');
+                versionDetails.classList.add('version-details');
+
+                if (entry.features && entry.features.length > 0) {
+                    const featuresCategory = document.createElement('div');
+                    featuresCategory.classList.add('category', 'features');
+                    const featuresTitle = document.createElement('h4');
+                    featuresTitle.textContent = 'Características';
+                    const featuresList = document.createElement('ul');
+                    entry.features.forEach(feature => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = feature;
+                        featuresList.appendChild(listItem);
+                    });
+                    featuresCategory.appendChild(featuresTitle);
+                    featuresCategory.appendChild(featuresList);
+                    versionDetails.appendChild(featuresCategory);
+                }
+
+                if (entry.functions && entry.functions.length > 0) {
+                    const functionsCategory = document.createElement('div');
+                    functionsCategory.classList.add('category', 'functions');
+                    const functionsTitle = document.createElement('h4');
+                    functionsTitle.textContent = 'Funciones';
+                    const functionsList = document.createElement('ul');
+                    entry.functions.forEach(func => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = func;
+                        functionsList.appendChild(listItem);
+                    });
+                    functionsCategory.appendChild(functionsTitle);
+                    functionsCategory.appendChild(functionsList);
+                    versionDetails.appendChild(functionsCategory);
+                }
+
+                if (entry.improvements && entry.improvements.length > 0) {
+                    const improvementsCategory = document.createElement('div');
+                    improvementsCategory.classList.add('category', 'improvements');
+                    const improvementsTitle = document.createElement('h4');
+                    improvementsTitle.textContent = 'Mejoras';
+                    const improvementsList = document.createElement('ul');
+                    entry.improvements.forEach(improvement => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = improvement;
+                        improvementsList.appendChild(listItem);
+                    });
+                    improvementsCategory.appendChild(improvementsTitle);
+                    improvementsCategory.appendChild(improvementsList);
+                    versionDetails.appendChild(improvementsCategory);
+                }
+
+                versionCard.appendChild(versionDetails);
+                changelogCardsDiv.appendChild(versionCard);
+            });
+        }
+
+        function addVersion() {
+            const versionInput = document.getElementById('version');
+            const dateInput = document.getElementById('date');
+            const featuresTextarea = document.getElementById('features');
+            const functionsTextarea = document.getElementById('functions');
+            const improvementsTextarea = document.getElementById('improvements');
+            const changelogCardsDiv = document.getElementById('changelog-cards');
+
+            const newVersion = versionInput.value.trim();
+            const newDate = dateInput.value.trim();
+            const newFeatures = featuresTextarea.value.trim().split('\n').filter(item => item !== '');
+            const newFunctions = functionsTextarea.value.trim().split('\n').filter(item => item !== '');
+            const newImprovements = improvementsTextarea.value.trim().split('\n').filter(item => item !== '');
+
+            if (newVersion && newDate) {
+                const newCard = document.createElement('div');
+                newCard.classList.add('version-card');
+
+                const versionHeader = document.createElement('div');
+                versionHeader.classList.add('version-header');
+                const versionTitle = document.createElement('h3');
+                versionTitle.textContent = `Versión ${newVersion}`;
+                const versionDate = document.createElement('span');
+                versionDate.textContent = newDate || 'Pendiente';
+                versionHeader.appendChild(versionTitle);
+                versionHeader.appendChild(versionDate);
+                newCard.appendChild(versionHeader);
+
+                const versionDetails = document.createElement('div');
+                versionDetails.classList.add('version-details');
+
+                if (newFeatures.length > 0) {
+                    const featuresCategory = document.createElement('div');
+                    featuresCategory.classList.add('category', 'features');
+                    const featuresTitle = document.createElement('h4');
+                    featuresTitle.textContent = 'Características';
+                    const featuresList = document.createElement('ul');
+                    newFeatures.forEach(feature => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = feature;
+                        featuresList.appendChild(listItem);
+                    });
+                    featuresCategory.appendChild(featuresTitle);
+                    featuresCategory.appendChild(featuresList);
+                    versionDetails.appendChild(featuresCategory);
+                }
+
+                if (newFunctions.length > 0) {
+                    const functionsCategory = document.createElement('div');
+                    functionsCategory.classList.add('category', 'functions');
+                    const functionsTitle = document.createElement('h4');
+                    functionsTitle.textContent = 'Funciones';
+                    const functionsList = document.createElement('ul');
+                    newFunctions.forEach(func => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = func;
+                        functionsList.appendChild(listItem);
+                    });
+                    functionsCategory.appendChild(functionsTitle);
+                    functionsCategory.appendChild(functionsList);
+                    versionDetails.appendChild(functionsCategory);
+                }
+
+                if (newImprovements.length > 0) {
+                    const improvementsCategory = document.createElement('div');
+                    improvementsCategory.classList.add('category', 'improvements');
+                    const improvementsTitle = document.createElement('h4');
+                    improvementsTitle.textContent = 'Mejoras';
+                    const improvementsList = document.createElement('ul');
+                    newImprovements.forEach(improvement => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = improvement;
+                        improvementsList.appendChild(listItem);
+                    });
+                    improvementsCategory.appendChild(improvementsTitle);
+                    improvementsCategory.appendChild(improvementsList);
+                    versionDetails.appendChild(improvementsCategory);
+                }
+
+                newCard.appendChild(versionDetails);
+                changelogCardsDiv.insertBefore(newCard, changelogCardsDiv.firstChild);
+
+                versionInput.value = '';
+                dateInput.value = '';
+                featuresTextarea.value = '';
+                functionsTextarea.value = '';
+                improvementsTextarea.value = '';
+            } else {
+                alert('Por favor, introduce la versión y la fecha.');
+            }
+        }
+    </script>
+</body>
+</html>
