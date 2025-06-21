@@ -27,6 +27,9 @@ if (mysqli_num_rows($validar_login) > 0) {
     // Obtiene los datos del usuario como un array asociativo
     $row = mysqli_fetch_assoc($validar_login);
 
+    // Guarda el ID del usuario en la sesión
+    $_SESSION['id'] = $row['id']; // Aquí se almacena el ID del usuario
+
     // Guarda el correo electrónico en la sesión
     $_SESSION['usuario'] = $correo;
 
@@ -37,6 +40,7 @@ if (mysqli_num_rows($validar_login) > 0) {
     $_SESSION['id_cargo'] = $row['id_cargo'];
 
     // Crea cookies para mantener la sesión incluso después de cerrar el navegador (duran 1 año)
+    setcookie('id', $row['id'], time() + (365 * 24 * 60 * 60), "/"); // 1 año
     setcookie('usuario', $correo, time() + (365 * 24 * 60 * 60), "/"); // 1 año
     setcookie('nombre_usuario', $row['nombre_c'], time() + (365 * 24 * 60 * 60), "/");
     setcookie('id_cargo', $row['id_cargo'], time() + (365 * 24 * 60 * 60), "/");
@@ -44,7 +48,7 @@ if (mysqli_num_rows($validar_login) > 0) {
     // Redirige al usuario según su rol (id_cargo)
     switch ($row['id_cargo']) {
         case NULL: // Usuario común sin cargo asignado
-            header("location: bienbenido.php");
+            header("location: casa.php"); // Redirige a tu página de bienvenida
             break;
 
         case 1: // Servidor

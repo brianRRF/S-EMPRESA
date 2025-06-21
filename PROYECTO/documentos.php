@@ -50,6 +50,7 @@ if (!file_exists('C:/xampp/htdocs/ProyectoInicio/' . $foto_perfil)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentos</title>
+    <link rel="icon" href="4-icono.ico">
     <link rel="stylesheet" href="elperron.css">
 </head>
 <body>

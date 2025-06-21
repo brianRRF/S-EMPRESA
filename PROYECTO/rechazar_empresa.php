@@ -26,6 +26,7 @@ if ($empresa = mysqli_fetch_assoc($resultado)) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rechazar Empresa</title>
+        <link rel="icon" href="4-icono.ico">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </head>
     <body>

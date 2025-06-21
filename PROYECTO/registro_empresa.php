@@ -1,17 +1,21 @@
 <?php
-// Inicia o restaura la sesión
+// Inicia o restaura la sesión del usuario
 session_start();
-include 'conexion_be.php'; // Conexión a la base de datos
 
-// Restaurar sesión desde cookies si es necesario
+// Incluye el archivo con la conexión a la base de datos
+include 'conexion_be.php';
+
+// --- RESTAURAR SESIÓN DESDE COOKIES SI ES NECESARIO ---
 if (isset($_COOKIE['usuario']) && !isset($_SESSION['usuario'])) {
+    // Si existe la cookie y no la sesión, recupera los datos de la cookie
     $_SESSION['usuario'] = $_COOKIE['usuario'];
     $_SESSION['nombre_usuario'] = $_COOKIE['nombre_usuario'];
     $_SESSION['id_cargo'] = $_COOKIE['id_cargo'];
-    $_SESSION['id'] = $_COOKIE['id']; // Restaurar el ID desde la cookie
+    $_SESSION['id'] = $_COOKIE['id']; // También el ID único del usuario
 }
 
-// Verifica que el usuario esté logueado
+// --- VERIFICACIÓN DE AUTENTICACIÓN ---
+// Si el usuario no está logueado correctamente, muestra alerta y redirige al login
 if (!isset($_SESSION['usuario']) || !isset($_SESSION['id'])) {
     echo '<script>
         alert("Debe iniciar sesión para registrar una empresa.");
@@ -20,7 +24,7 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['id'])) {
     exit();
 }
 
-// Obtener datos del formulario
+// --- OBTENCIÓN Y SANITIZACIÓN DE DATOS DEL FORMULARIO ---
 $id_usuario = $_SESSION['id'];
 $nombre_legal = mysqli_real_escape_string($conexion, $_POST['nombre_legal']);
 $nombre_comercial = mysqli_real_escape_string($conexion, $_POST['nombre_comercial']);
@@ -38,22 +42,25 @@ $dominio_hosting = mysqli_real_escape_string($conexion, $_POST['dominio_hosting'
 $certificado_ssl = mysqli_real_escape_string($conexion, $_POST['certificado_ssl']);
 $plataforma_cms = mysqli_real_escape_string($conexion, $_POST['plataforma_cms']);
 
-// Manejo de archivos subidos
-$uploads_dir = 'uploads';
+// --- MANEJO DE ARCHIVOS SUBIDOS ---
+$uploads_dir = 'uploads'; // Carpeta donde se guardarán los archivos
 if (!is_dir($uploads_dir)) {
-    mkdir($uploads_dir, 0777, true);
+    mkdir($uploads_dir, 0777, true); // Crea la carpeta si no existe
 }
 
+// Lista de archivos esperados en el formulario
 $files = ['certificado_constitucion', 'registro_mercantil', 'licencias_permisos', 'documento_identidad_representante'];
 $file_paths = [];
 foreach ($files as $file) {
+    // Si el archivo fue subido sin errores
     if (isset($_FILES[$file]) && $_FILES[$file]['error'] === UPLOAD_ERR_OK) {
-        $tmp_name = $_FILES[$file]['tmp_name'];
-        $name = basename($_FILES[$file]['name']);
-        $path = "$uploads_dir/$name";
+        $tmp_name = $_FILES[$file]['tmp_name']; // Ruta temporal
+        $name = basename($_FILES[$file]['name']); // Nombre original del archivo
+        $path = "$uploads_dir/$name"; // Ruta final
         if (move_uploaded_file($tmp_name, $path)) {
-            $file_paths[$file] = $path;
+            $file_paths[$file] = $path; // Guarda la ruta en el arreglo
         } else {
+            // Si hay error al mover, muestra alerta y regresa a la página anterior
             echo '<script>
                 alert("Error al subir el archivo ' . $file . '.");
                 window.history.back();
@@ -63,7 +70,8 @@ foreach ($files as $file) {
     }
 }
 
-// Inserción en la tabla de empresa
+// --- INSERCIÓN DE DATOS EN LA TABLA EMPRESA ---
+// Prepara la consulta INSERT con todos los datos y rutas de archivos
 $query = "INSERT INTO empresa (
     id,
     nombre_legal,
@@ -110,17 +118,20 @@ $query = "INSERT INTO empresa (
     'pendiente'
 )";
 
+// --- EJECUTAR LA INSERCIÓN Y NOTIFICAR A LOS ADMINISTRADORES ---
 if (mysqli_query($conexion, $query)) {
-    // Obtener el ID de la empresa recién registrada
+    // Si la inserción fue exitosa, obtiene el id de la empresa registrada
     $id_empresa = mysqli_insert_id($conexion);
 
-    // Obtener los usuarios que son administradores
+    // Busca todos los usuarios con rol de administrador (id_cargo = 2)
     $admin_query = "SELECT id FROM usuario WHERE id_cargo = 2";
     $admins = mysqli_query($conexion, $admin_query);
 
-    // Insertar notificaciones para cada administrador
+    // Prepara el título y el mensaje de notificación
     $titulo = "Nueva empresa registrada";
     $mensaje = "La empresa \"$nombre_legal\" ha sido registrada y está pendiente de revisión.";
+
+    // Crea una notificación para cada administrador
     while ($admin = mysqli_fetch_assoc($admins)) {
         $id_admin = $admin['id'];
         $notificacion_query = "INSERT INTO notificaciones_admin (id_usuario, id_empresa, titulo, mensaje) 
@@ -128,13 +139,13 @@ if (mysqli_query($conexion, $query)) {
         mysqli_query($conexion, $notificacion_query);
     }
 
-    // Mostrar mensaje de éxito y redirigir al usuario a la página de bienvenida
+    // Muestra mensaje de éxito y redirige al usuario
     echo '<script>
         alert("Empresa registrada exitosamente. Los administradores han sido notificados.");
         window.location = "bienbenido.php";
     </script>';
 } else {
-    // Mostrar mensaje de error si ocurre un problema con la base de datos
+    // Si hay error en la base de datos, muestra el error y regresa
     echo '<script>
         alert("Error al registrar la empresa: ' . mysqli_error($conexion) . '");
         window.history.back();

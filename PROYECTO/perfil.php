@@ -52,6 +52,7 @@ $fecha_nacimiento = $row['fecha_nacimiento'] ?? 'NO DEFINIDO';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil</title>
+  <link rel="icon" href="4-icono.ico">
   <link rel="stylesheet" href="elperron.css">
   <link rel="stylesheet" href="perfil.css">
 </head>

@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="registro.css" rel="stylesheet">
     <title>S-EMPRESA</title>
+    <link rel="icon" href="4-icono.ico">
   </head>
   <body>
    <section class="contact-box">

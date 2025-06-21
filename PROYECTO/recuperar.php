@@ -9,6 +9,7 @@
     <link href="registro.css" rel="stylesheet">
 
     <title>OLVIDE MI CONTRASEÑA</title>
+    <link rel="icon" href="4-icono.ico">
   </head>
   <body>
     <section class="contact-box">

@@ -1,14 +1,22 @@
 <?php
+// Inicia la sesión para poder usar variables de sesión del usuario
 session_start();
+
+// Incluye el archivo de conexión a la base de datos (debe definir $conexion)
 include 'conexion_be.php'; // Conexión a la base de datos
 
+// Verifica si el usuario está autenticado.
+// Si no hay sesión de usuario, redirige a la página de inicio y termina el script.
 if (!isset($_SESSION['usuario'])) {
     header("location: inicio.php");
     exit();
 }
 
-// Obtener el ID de la empresa desde la URL
+// Obtiene el ID de la empresa desde la URL con GET y lo convierte a entero para evitar inyecciones y errores.
+// Si no existe 'id_empresa' en GET, $id_empresa será null.
 $id_empresa = isset($_GET['id_empresa']) ? intval($_GET['id_empresa']) : null;
+
+// Si no se proporcionó el ID de la empresa, muestra una alerta y regresa a la página anterior.
 if (!$id_empresa) {
     echo '<script>
         alert("No se proporcionó el ID de la empresa.");
@@ -17,24 +25,31 @@ if (!$id_empresa) {
     exit();
 }
 
-// Verifica si la empresa existe y está aceptada
+// Consulta la base de datos para obtener el estado de la empresa con el ID dado
 $query = "SELECT estado FROM empresa WHERE id_empresa = $id_empresa";
 $resultado = mysqli_query($conexion, $query);
+
+// Intenta obtener la fila de resultado (si la empresa existe)
 $empresa = mysqli_fetch_assoc($resultado);
 
+// Si no se encontró la empresa, muestra una alerta y regresa
 if (!$empresa) {
     echo '<script>
         alert("La empresa no existe.");
         window.history.back();
     </script>';
     exit();
-} elseif ($empresa['estado'] !== 'aceptada') {
+} 
+// Si la empresa existe pero su estado NO es 'aceptada', muestra una alerta y regresa
+elseif ($empresa['estado'] !== 'aceptada') {
     echo '<script>
         alert("La empresa debe estar aceptada para agregar detalles.");
         window.history.back();
     </script>';
     exit();
 }
+
+// Si el código llega aquí, la empresa existe y está aceptada. El script puede continuar normalmente.
 ?>
 
 <!DOCTYPE html>

@@ -1,6 +1,23 @@
 /* Importa las fuentes Montserrat y Poppins desde Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+            --color-primario: #007bff;
+            --color-secundario: #6c757d;
+            --color-texto: #343a40;
+            --color-texto-claro: #6f757b;
+            --color-fondo: #f8f9fa;
+            --color-blanco: #ffffff;
+            --color-borde: #e9ecef;
+
+            /* Colores del footer */
+            --footer-fondo: #feba0e;
+            --footer-texto: #343a40;
+            --footer-hover-link: #fff;
+            --footer-input-fondo: rgba(0,0,0,0.1);
+            --footer-placeholder: rgba(52,58,64,0.7);
+            --footer-borde: rgba(0,0,0,0.1);
+        }
 /* Regla universal para aplicar a todos los elementos de la página */
 * {
     margin: 0;  /* Elimina los márgenes predeterminados de todos los elementos */
@@ -476,100 +493,6 @@ nav ul li a {
 
 
 
-/* Estilo para el footer */
-footer {
-    margin-top: 80px; /* Añade un margen superior de 80px */
-    width: 100%; /* El ancho del footer ocupará todo el espacio disponible */
-    padding: 50px 0px; /* Añade un relleno de 50px en la parte superior e inferior */
-    background-color: #feba0b; /* El fondo del footer será de un tono amarillo (#feba0b) */
-    -webkit-mask-image: url(background-footer.svg); /* Aplica una máscara usando la imagen para navegadores basados en Webkit (como Safari) */
-    mask-image: url(background-footer.svg); /* Aplica una máscara usando la imagen para otros navegadores */
-    mask-size: cover; /* Asegura que la máscara cubra todo el área del footer */
-}
-
-/* Contenedor dentro del footer */
-.container_footer {
-    display: flex; /* Utiliza Flexbox para organizar los elementos dentro del contenedor */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
-    justify-content: space-between; /* Distribuye los elementos de forma equitativa */
-    max-width: 1200px; /* El contenedor tiene un ancho máximo de 1200px */
-    margin: auto; /* Centra el contenedor horizontalmente */
-    margin-top: 100px; /* Añade un margen superior de 100px */
-}
-
-/* Caja dentro del footer */
-.box_footer {
-    display: flex; /* Utiliza Flexbox para organizar los elementos dentro de la caja */
-    flex-direction: column; /* Los elementos dentro de la caja estarán dispuestos en columna */
-    padding: 40px; /* Añade un relleno de 40px alrededor de la caja */
-}
-
-/* Estilo para el logo dentro del footer */
-.box_footer .logo img {
-    width: 70px; /* El logo tendrá un ancho de 70px */
-}
-
-/* Estilo para los términos dentro del footer */
-.box_footer .terms {
-    max-width: 350px; /* El ancho máximo de los términos es de 350px */
-    margin-top: 20px; /* Añade un margen superior de 20px */
-    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
-    color: #7a7a7a; /* El color del texto será gris (#7a7a7a) */
-    font-size: 18px; /* El tamaño de la fuente será de 18px */
-}
-
-/* Estilo para los títulos dentro de las cajas del footer */
-.box_footer h2 {
-    margin-bottom: 30px; /* Añade un margen inferior de 30px */
-    color: #373737; /* El color del texto será gris oscuro (#373737) */
-    font-weight: 700; /* El peso de la fuente será de 700 (negrita) */
-}
-
-/* Estilo para los enlaces dentro del footer */
-.box_footer a {
-    margin-top: 10px; /* Añade un margen superior de 10px */
-    color: #373737; /* El color del texto será gris oscuro (#373737) */
-    font-weight: 600; /* El peso de la fuente será de 600 (semi-negrita) */
-}
-
-/* Estilo para los enlaces al pasar el cursor sobre ellos */
-.box_footer a:hover {
-    opacity: 0.8; /* El enlace se vuelve un poco más transparente cuando el cursor pasa sobre él */
-}
-
-/* Estilo para los íconos dentro de los enlaces (por ejemplo, redes sociales) */
-.box_footer a .fab {
-    font-size: 20px; /* Los íconos tendrán un tamaño de fuente de 20px */
-}
-
-/* Contenedor para el copyright */
-.box_copyr {
-    max-width: 1200px; /* El contenedor tiene un ancho máximo de 1200px */
-    margin: auto; /* Centra el contenedor horizontalmente */
-    text-align: center; /* Centra el texto dentro del contenedor */
-    padding: 0px 40px; /* Añade un relleno de 40px a los lados */
-}
-
-/* Estilo para el párrafo dentro del contenedor de copyright */
-.box_copyr p {
-    margin-top: 20px; /* Añade un margen superior de 20px */
-    color: #373737; /* El color del texto será gris oscuro (#373737) */
-}
-
-/* Estilo para la línea divisoria dentro del contenedor de copyright */
-.box_copyr hr {
-    border: none; /* Elimina los bordes predeterminados */
-    height: 1px; /* La altura de la línea será de 1px */
-    background-color: #373737; /* El color de la línea será gris oscuro (#373737) */
-}
-
-
-
-
-
-
-
-
 /* Contenedor para las cartas de información */
 .container_carrs {
     max-width: 1200px; /* El contenedor tiene un ancho máximo de 1200px */
@@ -625,7 +548,7 @@ footer {
 /* Estilo para el ícono dentro de la carta */
 .icono i {
     font-size: 150px; /* El tamaño del ícono será de 150px */
-    color: #fff; /* El color del ícono será blanco */
+    color: #fff; /* El color del ícono será blanco al inicio */
 }
 
 /* Estilo para la información dentro de la carta */
@@ -812,93 +735,191 @@ footer {
 }
 
 
+/*footer*/
 
 
-/*TRADUCTOR*/
 
-.language-menu {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .selected-language {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .selected-language:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    transform: translateY(-2px);
-  }
-  
-  .selected-language img {
-    width: 30px;
-    height: 20px;
-    margin-right: 10px;
-    border-radius: 4px;
-  }
-  
-  .selected-language span {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-  }
-  
-  .language-options {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-    z-index: 1;
-    min-width: 200px;
-    max-height: 350px;
-  }
-  
-  .language-options.show {
-    display: block;
-  }
-  
-  #language-search {
-    width: 100%;
-    padding: 10px 15px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    outline: none;
-    font-size: 14px;
-  }
-  
-  #language-list {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  
-  #language-list div {
-    padding: 12px 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.2s ease;
-  }
-  
-  #language-list div:hover {
-    background-color: #f0f0f0;
-  }
-  
-  #language-list img {
-    width: 25px;
-    height: 18px;
-    margin-right: 10px;
-    border-radius: 4px;
-  }
-  
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        footer {
+            background-color: var(--footer-fondo);
+            color: var(--footer-texto);
+            padding: 60px 0 30px;
+            font-size: 0.95em;
+            border-radius: 20px 20px 0 0;
+            margin-top: 120px;
+            width: 100%;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--footer-texto);
+        }
+
+        .footer-col p {
+            color: var(--footer-texto);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--footer-texto);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--footer-hover-link);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links a:last-child {
+            margin-right: 0;
+        }
+
+        .social-links ion-icon {
+            font-size: 24px;
+            color: var(--footer-texto);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover ion-icon {
+            color: var(--color-primario);
+            transform: scale(1.1);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            color: var(--footer-texto);
+            font-size: 1em;
+            caret-color: var(--color-blanco);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--footer-placeholder);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-borde);
+            color: var(--footer-texto);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .language-selector .material-icons {
+            font-size: 24px;
+            color: var(--footer-texto);
+        }
+
+        .language-selector select {
+            font-size: 1em;
+            background: var(--footer-input-fondo);
+            color: var(--footer-texto);
+            border: 1px solid var(--footer-borde);
+            padding: 10px 15px;
+            border-radius: 7px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg...%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .language-selector select:focus {
+            outline: 2px solid var(--color-primario);
+            border-color: var(--color-primario);
+        }
+
+        @media (max-width: 768px) {
+            .footer-columns {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                justify-content: center;
+            }
+        }

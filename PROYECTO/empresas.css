@@ -162,14 +162,6 @@ select {
   -moz-appearance: none;
 
 }
-/*
-html {
-
-  font-family: var(--font-primary);
-  font-size: var(--fs-base);
-  scroll-behavior: smooth;
-} */
-
 
 
 ::-wedbkit-scrollbar {
@@ -184,6 +176,21 @@ html {
   background-color: var(--neutral-60);
   border-radius: 4px;
 }
+
+
+/*main*/
+
+
+.sidebar.minimize + main {
+    padding-left: 4.5rem;
+}
+
+.html {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  scroll-behavior: smooth;
+} 
+
 
 
 /*-----------------------------------*\
@@ -508,14 +515,18 @@ font-variation-settings:
   100% {transform: translateY(0);}
 }
 
-/*.header .container {
+
+
+.header .container {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
 }
-*/
+
+
+
 .nav-toggle-btn .close,
 .nav-toggle-btn.active .open {
   display: none;
@@ -1350,6 +1361,7 @@ color: var(--neutral-30);
   /* Estilo para la imagen dentro del contenedor .container_vector en pantallas de hasta 920px de ancho */
   .container_vector img {
       width: 350px; /* Cambia el ancho de la imagen a 350px cuando la pantalla tiene un máximo de 920px de ancho */
+      display: none;
   }
 }
 
@@ -1410,7 +1422,7 @@ color: var(--neutral-30);
 /* Estilo para el fondo de color dentro de la portada */
 .bg_color {
   width: 100%; /* El fondo ocupa el 100% del ancho */
-  height: 71%; /* El fondo ocupa el 70% de la altura del contenedor */
+  height: 73%; /* El fondo ocupa el 70% de la altura del contenedor */
   background: #2196f3; /* El fondo tiene un color azul (#2196f3) */
   position: absolute; /* El fondo se posiciona de forma absoluta dentro de su contenedor */
   top: 0; /* Se coloca en la parte superior del contenedor */

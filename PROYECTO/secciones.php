@@ -34,6 +34,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="4-icono.ico">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -88,7 +89,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
                             <i class='bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="" class="sub-menu-link">TODO</a></li>
+                            <li><a href="gestionar_empresas.php" class="sub-menu-link">TODO</a></li>
                             <li><a href="" class="sub-menu-link">Microempresas</a></li>
                             <li><a href="" class="sub-menu-link">Pequeñas empresas</a></li>
                             <li><a href="" class="sub-menu-link">Medianas empresas</a></li>
@@ -127,7 +128,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
                     </li>
 
                     <li class="menu-item menu-item-static">
-                        <a href="" class="menu-link">
+                        <a href="paginitas.html" class="menu-link">
                         <i class='bx bx-book-content'></i>
                             <span>Contenido</span>
                         </a>
@@ -141,7 +142,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
         <div class="footer">
             <ul class="menu">
                 <li class="menu-item menu-item-static">
-                    <a href="#" class="menu-link">
+                    <a href="notificaciones_admin.php" class="menu-link">
                     <i class='bx bx-user-voice'></i>
                         <span>Notificacion</span>
                     </a>

@@ -1,29 +1,33 @@
 <?php 
+// Inicia la sesión PHP para poder utilizar variables de sesión
 session_start();
 
-// Restaurar sesión desde las cookies si el usuario no está autenticado
+// --- Restaurar sesión desde cookies (si el usuario no está autenticado) ---
 if (!isset($_SESSION['usuario']) && isset($_COOKIE['usuario'])) {
+    // Si no existe la variable de sesión 'usuario' pero sí la cookie 'usuario',
+    // se restauran los datos de sesión con los valores guardados en las cookies.
     $_SESSION['usuario'] = $_COOKIE['usuario'];
     $_SESSION['nombre_usuario'] = $_COOKIE['nombre_usuario'];
     $_SESSION['id_cargo'] = $_COOKIE['id_cargo'];
 }
 
-// Si ya hay una sesión activa, redirigir según el rol del usuario
-if (isset($_SESSION['usuario'])) {
-    switch ($_SESSION['id_cargo']) {
-        case NULL: // Usuario normal
-            header("Location: bienbenido.php");
+// --- Si ya hay una sesión activa, redirige según el rol del usuario ---
+if (isset($_SESSION['usuario'])) { // Si existe la variable de sesión 'usuario'
+    switch ($_SESSION['id_cargo']) { // Según el valor del rol id_cargo
+        case NULL: // Si el id_cargo es NULL, se asume que es un usuario normal
+            header("Location: casa.php"); // Redirige a la página principal del usuario normal
             break;
-        case 1: // Servidor
-            header("Location: usuarios.php");
+        case 1: // Si el id_cargo es 1, es un usuario tipo "Servidor"
+            header("Location: usuarios.php"); // Redirige a la página de usuarios
             break;
-        case 2: // Administrador
-            header("Location: secciones.php");
+        case 2: // Si el id_cargo es 2, es un Administrador
+            header("Location: secciones.php"); // Redirige a la página de administración/secciones
             break;
-        default: // Si el rol no es válido
-            header("Location: inicio.php");
+        default: // Si el rol no está definido en los casos anteriores
+            header("Location: inicio.php"); // Redirige a la página de inicio por defecto
             break;
     }
+    // Termina el script después de la redirección para evitar que se siga ejecutando código
     exit();
 }
 ?>
@@ -45,6 +49,8 @@ if (isset($_SESSION['usuario'])) {
     <link href="registro.css" rel="stylesheet">
 
     <title>INICIAR SESION</title>
+
+    <link rel="icon" href="4-icono.ico">
   </head>
   <body>
 
@@ -79,6 +85,7 @@ if (isset($_SESSION['usuario'])) {
                         <a href="recuperar.php">¿Olvidaste tu contraseña?</a>
                          <div class="text-center mt-4">
                           <button class="btn btn-primary width-100">INICIAR SESION</button>
+                          <button type="button" onclick="window.location='login_facial.html'">Iniciar sesión por reconocimiento facial</button>
                       </div>
                      </form>
                      <small class="d-inline-block text-muted mt-5">SI YA ERES MIEMBRO DE S-EMPRESA, INICIA SESION. Y SI NO <a href="registro.php">REGISTARTE</a></small>

@@ -51,6 +51,7 @@ $resultado_usuarios = mysqli_query($conexion, $query_usuarios);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Cards</title>
+  <link rel="icon" href="4-icono.ico">
   <script type="module" src="https://unpkg.com/ionicons@6.0.3/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@6.0.3/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="elperron.css">
@@ -96,14 +97,14 @@ $resultado_usuarios = mysqli_query($conexion, $query_usuarios);
 
                 <ul class="menu">
                     <li class="menu-item menu-item-static">
-                        <a href="bienbenido.php" class="menu-link">
+                        <a href="casa.php" class="menu-link">
                         <i class='bx bx-home-alt-2' ></i>
                             <span>Casa</span>
                         </a>
                     </li>
         
                     <li class="menu-item menu-item-static">
-                        <a href="#" class="menu-link">
+                        <a href="bienbenido.php" class="menu-link">
                             <i class='bx bx-briefcase-alt' ></i>
                             <span>Empresas</span>
                         </a>
@@ -116,9 +117,9 @@ $resultado_usuarios = mysqli_query($conexion, $query_usuarios);
                             <i class='bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="" class="sub-menu-link">Todo</a></li>
-                            <li><a href="" class="sub-menu-link">Publicidad</a></li>
-                            <li><a href="" class="sub-menu-link">Empredimiento</a></li>
+                            <li><a href="#" class="sub-menu-link">Todo</a></li>
+                            <li><a href="#" class="sub-menu-link">Publicidad</a></li>
+                            <li><a href="#" class="sub-menu-link">Empredimiento</a></li>
                         </ul>
                     </li>
         
@@ -148,7 +149,7 @@ $resultado_usuarios = mysqli_query($conexion, $query_usuarios);
         <div class="footer">
             <ul class="menu">
                 <li class="menu-item menu-item-static">
-                    <a href="#" class="menu-link">
+                    <a href="notificaciones_usuario.php" class="menu-link">
                         <i class='bx bxs-notification' ></i>
                         <span>Notificacion</span>
                     </a>

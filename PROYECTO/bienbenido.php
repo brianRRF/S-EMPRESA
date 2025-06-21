@@ -1,30 +1,36 @@
 <?php 
+// Inicia la sesión para usar variables de sesión (por ejemplo, para saber quién está logueado)
 session_start();
+
+// Incluye el archivo de conexión a la base de datos (debe definir $conexion)
 include 'conexion_be.php'; // Asegurar la conexión a la base de datos
 
-// Verificar si la cookie 'usuario' está establecida y restaurar sesión si es necesario
+// Verifica si la cookie 'usuario' está establecida y si NO hay sesión activa
+// Si es así, restaura la sesión copiando los valores de las cookies a las variables de sesión
 if (isset($_COOKIE['usuario']) && !isset($_SESSION['usuario'])) {
     $_SESSION['usuario'] = $_COOKIE['usuario'];
     $_SESSION['nombre_usuario'] = $_COOKIE['nombre_usuario'];
     $_SESSION['id_cargo'] = $_COOKIE['id_cargo'];
 }
 
-// Verificar si el usuario está logueado
+// Verifica si el usuario está logueado revisando la variable de sesión 'usuario'
+// Si NO está logueado, lo redirige a la página de inicio y termina el script
 if (!isset($_SESSION['usuario'])) {
     header("location: inicio.php");
     exit();
 }
 
-// Obtener datos del usuario
+// Obtiene el correo electrónico y el nombre del usuario desde las variables de sesión
 $correo_elec = $_SESSION['usuario'];
 $nombre_c = $_SESSION['nombre_usuario'];
 
-// Consultar la foto de perfil desde la base de datos
+// Consulta la base de datos para obtener la URL de la foto de perfil del usuario actual
 $query = "SELECT foto_perfil FROM usuario WHERE correo_elec='$correo_elec'";
 $resultado = mysqli_query($conexion, $query);
+// Extrae el resultado como un array asociativo (o null si no hay resultado)
 $row = mysqli_fetch_assoc($resultado);
 
-// Usar la URL pública de la imagen desde la base de datos o una imagen predeterminada en ImgBB
+// Si el usuario tiene una foto de perfil, usa esa URL; si no, usa una imagen predeterminada de ImgBB
 $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imagen predeterminada alojada en ImgBB
 ?>
 
@@ -35,9 +41,8 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    
-    <link rel="stylesheet" href="empresas.css">
+    <link rel="icon" href="4-icono.ico">
+      <link rel="stylesheet" href="empresas.css">
     <link rel="stylesheet" href="elperron.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -51,6 +56,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
 </head>
 <body>
     
+ 
 <div class="menu-btn sidebar-btn" id="sidebar-btn">
         <i class='bx bx-menu' ></i>
         <i class='bx bx-x' ></i>
@@ -71,14 +77,14 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
                 </div>
 
                 <ul class="menu">
-                    <li class="menu-item menu-item-static active">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item menu-item-static">
+                        <a href="casa.php" class="menu-link">
                         <i class='bx bx-home-alt-2' ></i>
                             <span>Casa</span>
                         </a>
                     </li>
         
-                    <li class="menu-item menu-item-static">
+                    <li class="menu-item menu-item-static active">
                         <a href="#" class="menu-link">
                             <i class='bx bx-briefcase-alt' ></i>
                             <span>Empresas</span>
@@ -124,7 +130,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
         <div class="footer">
             <ul class="menu">
                 <li class="menu-item menu-item-static">
-                    <a href="desarrollador.php" class="menu-link">
+                    <a href="notificaciones_usuario.php" class="menu-link">
                         <i class='bx bxs-notification' ></i>
                         <span>Notificacion</span>
                     </a>
@@ -167,21 +173,23 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
 
 <div class="container_cover">
 <div class="container_info">
+    
     <h1 id="ser">SERVI</h1>
     <h2>EMPRESA</h2>
     <!--<p id="text-content">Promoción de la Empresa: Cómo resaltar las características únicas y los valores de tu empresa.
         Calidad de los Servicios: La importancia de proporcionar servicios de alta calidad y cómo esto beneficia a tus clientes.</p>
 -->
 
-
                         <form action="./" method="get" class="search-bar">
                             <label class="search-item">
-                                <span class="label-medium label">Want to</span>
+                                <span class="label-medium label">Empresas</span>
 
                                 <select name="want-to" class="search-item-field body-medium">
-                                    <option value="buy" selected>Buy</option>
-                                    <option value="sell" >Sell</option> 
-                                    <option value="rent" >Rent</option> 
+                                    <option value="buy" selected>TODO</option>
+                                    <option value="sell" >Micro empresas</option> 
+                                    <option value="rent" >Empresas pequeñas</option>
+                                    <option value="rent" >Empresas</option> 
+                                    <option value="rent" >Empresas grandes</option> 
                                 </select>
 
 
@@ -189,7 +197,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
                             </label>
 
                             <label class="search-item">
-                                <span class="label-medium label">Property type</span>
+                                <span class="label-medium label">Tipo de empresas</span>
 
                                 <select name="property-type" class="search-item-field body-medium">
                                     <option value="any" selected>Any</option>
@@ -207,9 +215,9 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
 
 
                             <label class="search-item">
-                                <span class="label-medium label">Location</span>
+                                <span class="label-medium label">Buscar</span>
 
-                                <input type="text" name="location" placeholder="Street, City, Zip..." class="search-item-field body-medium">
+                                <input type="text" name="location" placeholder="Nombre, tipo, Empresa..." class="search-item-field body-medium">
 
 
                                 <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
@@ -218,7 +226,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
                             <button type="submit" class="search-btn">
                                 <span class="material-symbols-rounded" aria-hidden="true">search</span>
 
-                                <span class="label-medium">Search</span>
+                                <span class="label-medium">Buscar</span>
                             </button>
 
 
@@ -251,7 +259,7 @@ $foto_perfil = $row['foto_perfil'] ?? 'https://i.ibb.co/Wpcn6Dq9/R.png'; // Imag
             </div>
 
             <a href="#" class="btn btn-outline">
-                <span class="label-medium">Explore more</span>
+                <span class="label-medium">Explorar mas</span>
 
                 <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
             </a>
@@ -802,3 +810,4 @@ $toggleBtns.forEach($toggleBtn => {
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
