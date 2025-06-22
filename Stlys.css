@@ -1,0 +1,925 @@
+/* Importa las fuentes Montserrat y Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+            --color-primario: #007bff;
+            --color-secundario: #6c757d;
+            --color-texto: #343a40;
+            --color-texto-claro: #6f757b;
+            --color-fondo: #f8f9fa;
+            --color-blanco: #ffffff;
+            --color-borde: #e9ecef;
+
+            /* Colores del footer */
+            --footer-fondo: #feba0e;
+            --footer-texto: #343a40;
+            --footer-hover-link: #fff;
+            --footer-input-fondo: rgba(0,0,0,0.1);
+            --footer-placeholder: rgba(52,58,64,0.7);
+            --footer-borde: rgba(0,0,0,0.1);
+        }
+/* Regla universal para aplicar a todos los elementos de la página */
+* {
+    margin: 0;  /* Elimina los márgenes predeterminados de todos los elementos */
+    padding: 0; /* Elimina el relleno predeterminado de todos los elementos */
+    box-sizing: border-box; /* Cambia el modelo de caja para que el padding y el border se incluyan en el ancho y alto de los elementos */
+    text-decoration: none; /* Elimina los estilos de subrayado en los enlaces */
+}
+
+/* Contenedor principal que se utilizará para manejar las transiciones y desplazamiento */
+.container_all {
+    position: relative; /* El contenedor está en posición relativa para ser referenciado por otros elementos */
+    right: 0; /* Alinea el contenedor a la derecha */
+    transition: all 300ms; /* Agrega una transición de 300 ms para cualquier cambio en las propiedades */
+}
+
+/* Estilo para el header, se mantiene fijo en la parte superior de la página */
+header {
+    width: 100%; /* El header ocupará el 100% del ancho de la pantalla */
+    height: 100px; /* El header tendrá una altura fija de 100px */
+    font-family: "Poppins", sans-serif; /* Se usa la fuente Poppins para el texto */
+    position: fixed; /* El header se mantiene fijo en la parte superior de la página */
+    top: 0px; /* Está alineado en la parte superior */
+    right: 0px; /* Está alineado a la derecha */
+    z-index: 100; /* El header tendrá un valor de z-index de 100 para asegurarse de que esté por encima de otros elementos */
+    transition: all 300ms; /* Agrega una transición suave en todas las propiedades */
+}
+
+/* Mueve el contenido cuando se le aplica la clase move_content */
+.move_content {
+    right: 180px; /* Mueve el contenido 180px hacia la izquierda */
+}
+
+/* Contenedor del header que maneja el espacio interno */
+.container_header {
+    max-width: 1200px; /* El ancho máximo del contenedor será de 1200px */
+    height: 100%; /* El contenedor ocupará el 100% de la altura disponible */
+    display: flex; /* Usa Flexbox para el layout */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del eje horizontal con espacio entre ellos */
+    margin: auto; /* Centra el contenedor en la página */
+    padding: 0px 20px; /* Añade un espacio de 20px a los lados del contenedor */
+}
+
+/* Estilo para el logo dentro del header */
+header .logo {
+    height: 100%; /* El logo ocupa toda la altura del header */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilo para la imagen del logo */
+.logo img {
+    width: 50px; /* La imagen tendrá un ancho fijo de 50px */
+}
+
+/* Contenedor para la barra de navegación dentro del header */
+.container_nav {
+    position: relative; /* El contenedor de la navegación tiene posición relativa */
+    height: 100%; /* La altura del contenedor es 100% */
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    height: 100%; /* La barra de navegación ocupa el 100% de la altura */
+}
+
+/* Estilo para la lista de navegación */
+nav ul {
+    height: 100%; /* La lista ocupa el 100% de la altura */
+    display: flex; /* Usa Flexbox para distribuir los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilo para cada item dentro de la lista de navegación */
+nav ul li {
+    margin: 0px 20px; /* Añade un margen de 20px a cada lado de los elementos de la lista */
+    list-style: none; /* Elimina el estilo de lista predeterminado (como los puntos) */
+}
+
+/* Estilo para los enlaces dentro de los items de la lista de navegación */
+nav ul li a {
+    color: #000; /* El color del texto será negro */
+    font-size: 16px; /* El tamaño de la fuente será de 16px */
+}
+
+/* Estilo para la barra de navegación cuando tiene la clase nav_mod */
+.nav_mod {
+    height: 70px; /* La barra de navegación tendrá una altura de 70px */
+    box-shadow: 1px 1px 10px 0px #00000010; /* Añade una sombra sutil a la barra */
+    background: white; /* El fondo será blanco */
+}
+
+/* Estilo para el botón de selección (por ejemplo, un botón de acción) */
+.select {
+    background: rgb(255, 94, 0); /* El fondo del botón será un color naranja */
+    padding: 10px 30px; /* Añade un relleno de 10px arriba y abajo, y 30px a los lados */
+    color: white; /* El texto será de color blanco */
+    border-radius: 20px; /* Las esquinas estarán redondeadas con un radio de 20px */
+    transition: all 300ms; /* Agrega una transición suave para todos los cambios */
+}
+
+/* Estilo para el botón de selección cuando se pasa el cursor sobre él */
+.select:hover {
+    box-shadow: 1px 1px 30px -10px #20202049; /* Añade una sombra más pronunciada cuando se pasa el cursor */
+    color: #000; /* Cambia el color del texto a negro cuando se pasa el cursor */
+}
+
+/* Estilo para el botón de menú */
+.btn_menu {
+    width: 50px; /* El botón tendrá un ancho de 50px */
+    height: 50px; /* El botón tendrá una altura de 50px */
+    font-size: 20px; /* El tamaño de la fuente será de 20px */
+    cursor: pointer; /* El cursor será un puntero para indicar que es interactivo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    border-radius: 50%; /* Hace que el botón tenga bordes redondeados (circular) */
+    transition: background 300ms; /* Agrega una transición suave al fondo del botón */
+    display: none; /* El botón de menú no se mostrará por defecto */
+}
+
+/* Estilo para el botón de menú cuando el cursor pasa sobre él */
+.btn_menu:hover {
+    background: rgba(0,0,0,0.5); /* El fondo se vuelve semitransparente y negro cuando se pasa el cursor */
+}
+
+
+/* Definición de la animación "move_vector" */
+@keyframes move_vector {
+    0% {
+        transform: translateY(10px); /* Al principio de la animación, la imagen se moverá 10px hacia abajo */
+    }
+    25% {
+        transform: translateY(-10px); /* Después de un cuarto del tiempo, la imagen se moverá 10px hacia arriba */
+    }
+    100% {
+        transform: translateY(10px); /* Al final de la animación, la imagen se moverá 10px hacia abajo nuevamente */
+    }
+}
+/* Estilo para la sección de portada */
+.cover {
+    width: 100%; /* La portada ocupa el 100% del ancho de la pantalla */
+    padding-bottom: 120px; /* Añade un relleno de 120px en la parte inferior */
+    font-family: "Poppins", sans-serif; /* Se usa la fuente Poppins */
+    padding-top: 100px; /* Añade un relleno de 100px en la parte superior */
+    position: relative; /* El contenedor tiene una posición relativa para que los elementos dentro puedan ser posicionados de forma absoluta */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+}
+
+/* Estilo para el fondo de color dentro de la portada */
+.bg_color {
+    width: 100%; /* El fondo ocupa el 100% del ancho */
+    height: 70%; /* El fondo ocupa el 70% de la altura del contenedor */
+    background: #2196f3; /* El fondo tiene un color azul (#2196f3) */
+    position: absolute; /* El fondo se posiciona de forma absoluta dentro de su contenedor */
+    top: 0; /* Se coloca en la parte superior del contenedor */
+}
+
+/* Estilo para la imagen de onda (weve) dentro de la portada */
+.weve {
+    width: 6000px; /* La imagen tiene un ancho de 6000px (probablemente sea mucho más grande que el contenedor) */
+    height: 100%; /* La imagen ocupa el 100% de la altura del contenedor */
+    position: absolute; /* La imagen se posiciona de manera absoluta */
+    top: 150px; /* Se coloca 150px hacia abajo desde la parte superior del contenedor */
+    left: 0; /* Se coloca en la parte izquierda del contenedor */
+    background-image: url(wd1.svg); /* Se utiliza una imagen SVG como fondo */
+    background-position: bottom; /* La imagen se posiciona en la parte inferior del contenedor */
+}
+
+/* Animación aplicada a la clase .w1 */
+.w1 {
+    animation: w1 10s linear infinite; /* Aplica la animación "w1", que durará 10 segundos, será lineal y se repetirá infinitamente */
+}
+
+/* Animación aplicada a la clase .w2 */
+.w2 {
+    animation: w2 7s linear -.125s infinite, desplaza 7s ease -.125s infinite; /* Aplica dos animaciones a la vez: "w2" que dura 7 segundos, y "desplaza" que también dura 7 segundos */
+    opacity: 0.5; /* La opacidad de este elemento es del 50% */
+}
+
+/* Definición de la animación "w1" */
+@keyframes w1 {
+    0% {
+        margin-left: 0; /* Al principio, la imagen está alineada a la izquierda */
+    }
+    100% {
+        margin-left: -1600px; /* Al final de la animación, la imagen se moverá hacia la izquierda por 1600px */
+    }
+}
+
+/* Definición de la animación "w2" */
+@keyframes w2 {
+    0% {
+        margin-left: 0; /* Al principio, la imagen está alineada a la izquierda */
+    }
+    100% {
+        margin-left: -1600px; /* Al final de la animación, la imagen se moverá hacia la izquierda por 1600px */
+    }
+}
+
+/* Definición de la animación "desplaza" */
+@keyframes desplaza {
+    0%, 100% {
+        transform: translateY(-25px); /* En los primeros y últimos momentos de la animación, el elemento se mueve hacia arriba 25px */
+    }
+    50% {
+        transform: translateY(10px); /* En el medio de la animación, el elemento se mueve hacia abajo 10px */
+    }
+}
+
+/* Estilo para el contenedor de las cartas (cartitas) */
+.container_cover {
+    max-width: 1200px; /* El contenedor tiene un ancho máximo de 1200px */
+    margin: auto; /* El contenedor se centra horizontalmente */
+    padding: 20px; /* Añade un relleno de 20px en todos los lados */
+    display: flex; /* Usa Flexbox para organizar los elementos dentro */
+    justify-content: space-between; /* Los elementos se distribuyen con espacio entre ellos */
+    position: relative; /* El contenedor tiene una posición relativa */
+    
+    background-image: url(); /* Se puede agregar una imagen de fondo, pero está vacía por ahora */
+    background-size: cover; /* La imagen de fondo cubrirá todo el contenedor */
+    background-position: bottom; /* La imagen de fondo se posicionará en la parte inferior */
+}
+
+
+/* Estilo para el contenedor de la información dentro de la portada */
+.cover .container_info {
+    max-width: 400px; /* El ancho máximo del contenedor será de 400px */
+    margin-top: 40px; /* Se agrega un margen superior de 40px */
+    z-index: 2; /* Define el índice de apilamiento del contenedor, asegurando que esté por encima de otros elementos con valores de z-index menores */
+}
+
+/* Estilo para el título principal dentro de la portada */
+.cover h1 {
+    max-height: 400px; /* La altura máxima del título será de 400px */
+    font-size: 60px; /* El tamaño de la fuente será de 60px */
+    font-weight: 900; /* El peso de la fuente será el más pesado (negrita) */
+    color: #373737; /* El color del texto será gris oscuro (#373737) */
+}
+
+/* Estilo para el subtítulo dentro de la portada */
+.cover h2 {
+    font-size: 60px; /* El tamaño de la fuente será de 60px */
+    font-weight: 900; /* El peso de la fuente será de 900, similar al h1 */
+    color: #feba0b; /* El color del texto será un tono amarillo (#feba0b) */
+    margin-top: -30px; /* El margen superior es negativo, moviendo el subtítulo hacia arriba */
+}
+
+/* Estilo para los párrafos dentro de la portada */
+.cover p {
+    margin-top: 10px; /* Añade un margen de 10px en la parte superior */
+    color: #373737; /* El color del texto será gris oscuro (#373737) */
+}
+
+/* Estilo para el botón dentro de la portada */
+.cover input[type="button"] {
+    padding: 10px 40px; /* Añade relleno de 10px arriba y abajo, 40px a los lados */
+    margin-top: 40px; /* Añade un margen superior de 40px */
+    font-size: 18px; /* El tamaño de la fuente será de 18px */
+    font-weight: 600; /* El peso de la fuente será de 600 (semi-negrita) */
+    border: none; /* El botón no tendrá bordes */
+    color: white; /* El color del texto será blanco */
+    background: #feba0b; /* El fondo será un tono amarillo (#feba0b) */
+    border-radius: 20px; /* El botón tendrá bordes redondeados con un radio de 20px */
+    box-shadow: 1px 1px 30px -5px #20202049; /* Añade una sombra suave al botón */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el botón */
+    transition: box-shadow 500ms; /* Aplica una transición suave al cambiar la sombra */
+} 
+
+/* Estilo para el botón cuando se pasa el cursor sobre él */
+.cover input[type="button"]:hover {
+    box-shadow: 1px 1px 30px -5px #20202085; /* Cambia la sombra del botón cuando se pasa el cursor */
+}
+
+/* Estilo para el contenedor de la imagen (vector) */
+.container_vector {
+    position: relative; /* El contenedor de la imagen está en una posición relativa */
+}
+
+/* Estilo para la imagen dentro del contenedor de la imagen (vector) */
+.container_vector img {
+    position: absolute; /* La imagen está posicionada de forma absoluta dentro del contenedor */
+    bottom: 10px; /* Se coloca a 10px desde la parte inferior */
+    right: 0; /* Se coloca a la derecha */
+    width: 450px; /* La imagen tendrá un ancho de 450px */
+    animation: move_vector 6s ease-in-out infinite; /* Aplica la animación "move_vector" que durará 6 segundos, con un movimiento suave de entrada y salida, y se repite infinitamente */
+    transition: all 300ms; /* Aplica una transición suave a todas las propiedades durante 300ms */
+}
+
+/* Media query para pantallas con un ancho máximo de 760px (dispositivos móviles) */
+@media screen and (max-width: 760px) {
+    /* Estilo para el contenedor de la barra de navegación en pantallas pequeñas */
+    .container_nav {
+        display: flex; /* Usa Flexbox para organizar los elementos */
+        justify-content: center; /* Centra los elementos horizontalmente */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+
+    /* Estilo para el botón de menú en pantallas pequeñas */
+    .btn_menu {
+        display: flex; /* Muestra el botón de menú */
+    }
+
+    /* Estilo para la barra de navegación en pantallas pequeñas */
+    nav {
+        height: 100%; /* La barra de navegación ocupará toda la altura */
+        background: #374459; /* El fondo de la barra será un color gris oscuro (#374459) */
+        position: fixed; /* La barra se mantiene fija en la parte superior */
+        top: 0; /* Se coloca en la parte superior */
+        right: -180px; /* Inicialmente se coloca fuera de la pantalla a la derecha */
+        padding: 0px 40px; /* Añade un relleno de 40px a los lados */
+        transition: all 300ms; /* Aplica una transición suave a todos los cambios */
+    }
+
+    /* Estilo para mover la barra de navegación cuando se le aplica la clase "move_nav" */
+    .move_nav {
+        right: 0px; /* Mueve la barra hacia la posición 0px desde la derecha (visible en la pantalla) */
+    }
+
+
+
+    /* Estilo para los elementos <ul> dentro de <nav>, cuando la pantalla es pequeña */
+    nav ul {
+        flex-direction: column; /* Cambia la dirección de los elementos de la lista de horizontal (predeterminado) a vertical (columna) */
+    }
+
+    /* Estilo para los elementos <li> dentro de <ul> de la barra de navegación */
+    nav ul li {
+        margin: 20px 0px; /* Añade un margen de 20px en la parte superior e inferior de cada elemento <li> */
+    }
+
+    /* Estilo para la imagen dentro del contenedor .container_vector cuando la pantalla es pequeña */
+    .container_vector img {
+        transform: scale(0); /* Aplica una transformación para reducir la imagen a tamaño 0 (la hace invisible o extremadamente pequeña) */
+        animation: none; /* Detiene cualquier animación aplicada a la imagen */
+    }
+} 
+
+/* Media query para pantallas con un ancho máximo de 920px (tabletas y pantallas medianas) */
+@media screen and (max-width: 920px) {
+    /* Estilo para la imagen dentro del contenedor .container_vector en pantallas de hasta 920px de ancho */
+    .container_vector img {
+        width: 350px; /* Cambia el ancho de la imagen a 350px cuando la pantalla tiene un máximo de 920px de ancho */
+    }
+}
+
+
+/*el baner super pro xd ultra hd*/
+
+
+/* Contenedor principal del banner */
+.container_baner {
+    max-width: 1200px; /* El ancho máximo del contenedor será de 1200px */
+    margin-top: 80px; /* Se añade un margen superior de 80px */
+    padding-top: 80px; /* Añade un relleno superior de 80px dentro del contenedor */
+    margin: auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilo para el banner */
+.baner {
+    height: 250px; /* El banner tiene una altura fija de 250px */
+    display: flex; /* Utiliza Flexbox para la disposición de los elementos dentro del banner */
+    align-items: center; /* Centra los elementos verticalmente dentro del banner */
+    background: #2196f3; /* El fondo del banner será un tono de azul (#2196f3) */
+    position: relative; /* Permite el posicionamiento relativo de elementos dentro del banner */
+}
+
+/* Estilo para el icono del corazón en el banner */
+.baner_icon-heart {
+    width: 35%; /* El icono ocupará el 35% del ancho del banner */
+    height: 100%; /* La altura del icono será igual a la del banner */
+}
+
+/* Estilo para el icono del corazón */
+#icon_heart {
+    width: 400px; /* El icono tendrá un ancho de 400px */
+    margin-top: -20px; /* Se aplica un margen negativo para mover el icono hacia arriba */
+    position: relative; /* Permite la manipulación del icono con respecto a su posición original */
+    filter: drop-shadow(-40px 0px 30px rgba(0,0,0,0.5)); /* Aplica una sombra al icono */
+}
+
+/* Estilo para el texto dentro del banner */
+.baner_text {
+    width: 60%; /* El texto ocupará el 60% del ancho del banner */
+    position: relative; /* Permite posicionar elementos dentro del bloque de texto */
+    padding: 40px; /* Se aplica un relleno de 40px alrededor del texto */
+}
+
+/* Estilo para el título dentro del banner */
+.baner_text h2 {
+    color: #000; /* El color del texto será negro */
+    font-size: 32px; /* El tamaño de la fuente será de 32px */
+    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
+}
+
+/* Estilo para el enlace dentro del banner */
+.baner_text a {
+    display: block; /* El enlace se muestra como un bloque (ocupa toda la línea) */
+    margin-top: 20px; /* Se añade un margen superior de 20px */
+    color: #000; /* El color del texto del enlace será negro */
+    font-size: 16px; /* El tamaño de la fuente será de 16px */
+    font-weight: bold; /* El texto del enlace será en negrita */
+    transition: color 300ms; /* Se aplica una transición suave de 300ms al color del enlace */
+}
+
+/* Estilo para el enlace al pasar el cursor sobre él */
+.baner_text a:hover {
+    color: #feba0b; /* Cambia el color del enlace a un tono amarillo (#feba0b) cuando el cursor pasa sobre él */
+}
+
+/* Estilo para el icono del fuego en el banner */
+.baner_icon-fire {
+    height: 100%; /* El icono ocupa toda la altura del banner */
+    position: absolute; /* El icono se posiciona de manera absoluta dentro del banner */
+    right: 10px; /* El icono se coloca 10px desde el borde derecho */
+    overflow: hidden; /* Se oculta cualquier contenido que se salga del área del contenedor */
+}
+
+/* Estilo para el icono del fuego */
+#icon_fire {
+    width: 300px; /* El icono tendrá un ancho de 300px */
+    position: relative; /* Permite el posicionamiento del icono dentro de su contenedor */
+    margin-top: -100px; /* Mueve el icono 100px hacia arriba */
+    opacity: 0.6; /* Hace que el icono sea un poco transparente */
+}
+
+/* Media query para pantallas con un ancho máximo de 760px (dispositivos móviles) */
+@media (max-width: 760px) { 
+    /* Estilo para el título dentro del banner en pantallas pequeñas */
+    .baner_text h2 {
+        font-size: 22px; /* Reduce el tamaño de la fuente del título a 22px */
+    }
+
+    /* Estilo para el icono del corazón en pantallas pequeñas */
+    #icon_heart {
+        left: -60; /* Mueve el icono del corazón 60px a la izquierda */
+    }
+
+    /* Estilo para el icono del fuego en pantallas pequeñas */
+    .baner_icon-fire {
+        right: -20px; /* Mueve el icono del fuego 20px hacia la derecha */
+    }
+}
+
+/* Media query para pantallas con un ancho máximo de 920px (tabletas y pantallas medianas) */
+@media (max-width: 920px) {
+    /* Estilo para el banner en pantallas más pequeñas */
+    .baner {
+        height: auto; /* Cambia la altura del banner a automática (se ajusta al contenido) */
+        flex-wrap: wrap; /* Permite que los elementos dentro del banner se envuelvan (pasen a una nueva línea si es necesario) */
+    }
+
+    /* Estilo para ocultar el icono de fuego en pantallas más pequeñas */
+    #icon_fire {
+        display: none; /* El icono del fuego se oculta */
+    }
+
+    /* Estilo para el icono del corazón en pantallas más pequeñas */
+    #icon_heart {
+        left: 0; /* El icono del corazón se coloca en su posición inicial (sin desplazamiento) */
+    }
+
+    /* Estilo para el texto dentro del banner en pantallas más pequeñas */
+    .baner_text {
+        width: 100%; /* El texto ocupa todo el ancho disponible */
+        margin-top: -100px; /* Mueve el texto 100px hacia arriba */
+    }
+}
+
+
+
+
+
+
+/* Contenedor para las cartas de información */
+.container_carrs {
+    max-width: 1200px; /* El contenedor tiene un ancho máximo de 1200px */
+    padding: 20px; /* Añade un relleno de 20px en todos los lados */
+    padding-bottom: 40px; /* Añade un relleno adicional de 40px en la parte inferior */
+    margin: auto; /* Centra el contenedor horizontalmente */
+    margin-top: 60px; /* Añade un margen superior de 60px */
+    display: flex; /* Utiliza Flexbox para organizar las cartas */
+    flex-wrap: wrap; /* Permite que las cartas se ajusten en varias líneas si es necesario */
+    justify-content: center; /* Centra las cartas dentro del contenedor */
+}
+
+/* Estilo para las cartas dentro del contenedor */
+.carta {
+    width: 300px; /* Cada carta tendrá un ancho fijo de 300px */
+    position: relative; /* Permite el posicionamiento relativo de los elementos dentro de la carta */
+    margin: 20px; /* Añade un margen de 20px alrededor de cada carta */
+    font-family: "Poppins", sans-serif; /* La fuente utilizada será Poppins */
+    transition: all 300ms; /* Aplica una transición suave de 300ms para todos los cambios */
+    border-radius: 20px; /* Los bordes de la carta tendrán un radio de 20px (bordes redondeados) */
+}
+
+/* Estilo para la carta cuando el cursor pasa sobre ella */
+.carta:hover {
+    box-shadow: 1px 1px 20px -10px #20202049; /* Aplica una sombra difusa alrededor de la carta */
+}
+
+/* Estilo para la información dentro de la carta al pasar el cursor sobre ella */
+.carta:hover .info_grafia {
+    margin-top: 0; /* Elimina el margen superior de la información */
+    border-radius: 0px 0px 20px; /* Redondea solo la parte inferior de la carta */
+}
+
+/* Estilo para el icono dentro de la carta cuando el cursor pasa sobre ella */
+.carta:hover .icono {
+    margin-top: -110px; /* Mueve el icono hacia arriba */
+}
+
+/* Estilo para el icono dentro de la carta */
+.icono {
+    width: 100%; /* El icono ocupará todo el ancho disponible de la carta */
+    height: 220px; /* El icono tendrá una altura de 220px */
+    background: #eff3f5; /* El fondo del icono será de un color gris claro (#eff3f5) */
+    padding: 20px; /* Añade un relleno de 20px alrededor del icono */
+    display: flex; /* Utiliza Flexbox para organizar los elementos dentro del icono */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    position: relative; /* Permite el posicionamiento relativo de los elementos dentro del icono */
+    z-index: 1; /* Coloca el icono en una capa superior */
+    transition: all 400ms cubic-bezier(0.5,0,0,1); /* Aplica una transición suave al pasar el cursor */
+}
+
+/* Estilo para el ícono dentro de la carta */
+.icono i {
+    font-size: 150px; /* El tamaño del ícono será de 150px */
+    color: #fff; /* El color del ícono será blanco al inicio */
+}
+
+/* Estilo para la información dentro de la carta */
+.info_grafia {
+    width: 100%; /* La información ocupará todo el ancho disponible de la carta */
+    height: 220px; /* La información tendrá una altura de 220px */
+    color: #474747; /* El color del texto será gris oscuro (#474747) */
+    background: #eff3f5; /* El fondo de la información será el mismo gris claro que el icono */
+    padding: 20px; /* Añade un relleno de 20px alrededor de la información */
+    margin-top: -220px; /* Mueve la información hacia arriba para que cubra el área de la carta */
+    transition: all 400ms cubic-bezier(0.5,0,0,1); /* Aplica una transición suave al pasar el cursor */
+}
+
+
+/* Estilo para el párrafo dentro de la sección de información */
+.info_grafia p {
+    font-size: 14px; /* El tamaño de la fuente será de 14px */
+    margin-top: 10px; /* Añade un margen superior de 10px */
+    display: -webkit-box; /* Utiliza un contenedor tipo caja en navegadores basados en WebKit (como Chrome y Safari) */
+    display: -moz-box; /* Utiliza un contenedor tipo caja en navegadores basados en Gecko (como Firefox) */
+    display: box; /* Utiliza un contenedor tipo caja estándar */
+    -webkit-box-orient: vertical; /* Establece la orientación del contenedor en vertical para WebKit */
+    -moz-box-orient: vertical; /* Establece la orientación del contenedor en vertical para Gecko */
+    box-orient: vertical; /* Establece la orientación del contenedor en vertical */
+    -webkit-line-clamp: 5; /* Limita el número de líneas visibles a 5 en navegadores WebKit */
+    line-clamp: 5; /* Limita el número de líneas visibles a 5 en navegadores que soportan la propiedad estándar */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde (más de 5 líneas) */
+}
+
+/* Estilo para los botones dentro de la información */
+.info_grafia input {
+    margin-top: 20px; /* Añade un margen superior de 20px */
+    padding: 10px 40px; /* Añade 10px de relleno arriba y abajo, y 40px a los lados del botón */
+    background: #2196f3; /* El fondo del botón será azul (#2196f3) */
+    color: #fff; /* El color del texto será blanco */
+    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
+    font-size: 14px; /* El tamaño de la fuente será de 14px */
+    cursor: pointer; /* El cursor cambiará a un puntero cuando el usuario pase el ratón por encima */
+    border: none; /* El botón no tendrá borde */
+    border-radius: 20px; /* Los bordes del botón serán redondeados con un radio de 20px */
+    box-shadow: 1px 1px 30px -5px #20202049; /* Añade una sombra sutil alrededor del botón */
+    transition: box-shadow 300ms; /* Añade una transición suave de 300ms para los cambios de la sombra */
+}
+
+/* Estilo para el botón cuando el cursor pasa sobre él */
+.info_grafia input:hover {
+    box-shadow: 1px 1px 30px -5px #20202070; /* La sombra del botón se vuelve más prominente al pasar el ratón */
+}
+
+/* Estilos para el cambio de color en la carta 1 */
+.c1:hover .icono {
+    background: #2196f3; /* El fondo del icono dentro de la carta 1 cambia a azul al pasar el ratón */
+}
+
+.c1 .icono i {
+    color: #2196f3; /* El color del ícono dentro de la carta 1 será azul por defecto */
+}
+
+.c1:hover .icono i {
+    color: #fff; /* El color del ícono dentro de la carta 1 cambia a blanco al pasar el ratón */
+}
+
+/* Estilos para el cambio de color en la carta 2 */
+.c2:hover .icono {
+    background: #feba0b; /* El fondo del icono dentro de la carta 2 cambia a amarillo (#feba0b) al pasar el ratón */
+}
+
+.c2 .icono i {
+    color: #feba0b; /* El color del ícono dentro de la carta 2 será amarillo por defecto */
+}
+
+.c2:hover .icono i {
+    color: #fff; /* El color del ícono dentro de la carta 2 cambia a blanco al pasar el ratón */
+}
+
+/* Estilos para el cambio de color en la carta 3 */
+.c3:hover .icono {
+    background: rgb(255, 94, 0); /* El fondo del icono dentro de la carta 3 cambia a un naranja (#ff5e00) al pasar el ratón */
+}
+
+.c3 .icono i {
+    color: rgb(255, 94, 0); /* El color del ícono dentro de la carta 3 será naranja por defecto */
+}
+
+.c3:hover .icono i {
+    color: #fff; /* El color del ícono dentro de la carta 3 cambia a blanco al pasar el ratón */
+}
+
+/*para la pagina emergente de nuestras cartitas*/
+
+/* Estilo para el modal (ventana emergente) */
+.modal {
+    display: none; /* Inicialmente, el modal está oculto (no visible) */
+    position: fixed; /* Se posiciona de manera fija en la pantalla */
+    z-index: 100; /* El modal se muestra por encima de otros elementos con z-index menor */
+    left: 0; /* Posiciona el modal al principio de la pantalla (a la izquierda) */
+    top: 0; /* Posiciona el modal en la parte superior de la pantalla */
+    width: 100%; /* El modal ocupará todo el ancho de la pantalla */
+    height: 100%; /* El modal ocupará toda la altura de la pantalla */
+    overflow: auto; /* Si el contenido del modal excede el área visible, aparecerán barras de desplazamiento */
+}
+
+/* Estilo para el contenido del modal 1 */
+.modal-content1 {
+    background-color: #2196f3; /* El fondo del contenido será azul (#2196f3) */
+    padding: 20px; /* Añade un relleno de 20px dentro del contenido */
+    border: 1px solid #888; /* Añade un borde de 1px de color gris claro */
+    width: 100%; /* El contenido ocupará el 100% del ancho disponible */
+    height: 100%; /* El contenido ocupará el 100% de la altura disponible */
+    font-size: 18px; /* El tamaño de la fuente dentro del contenido será de 18px */
+    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
+}
+
+/* Estilo para el contenido del modal 2 */
+.modal-content2 {
+    background-color: #feba0b; /* El fondo del contenido será amarillo (#feba0b) */
+    padding: 20px; /* Añade un relleno de 20px dentro del contenido */
+    border: 1px solid #888; /* Añade un borde de 1px de color gris claro */
+    width: 100%; /* El contenido ocupará el 100% del ancho disponible */
+    height: 100%; /* El contenido ocupará el 100% de la altura disponible */
+    font-size: 18px; /* El tamaño de la fuente dentro del contenido será de 18px */
+    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
+}
+
+/* Estilo para el contenido del modal 3 */
+.modal-content3 {
+    background-color: rgb(255, 94, 0); /* El fondo del contenido será naranja (#ff5e00) */
+    padding: 20px; /* Añade un relleno de 20px dentro del contenido */
+    border: 1px solid #888; /* Añade un borde de 1px de color gris claro */
+    width: 100%; /* El contenido ocupará el 100% del ancho disponible */
+    height: 100%; /* El contenido ocupará el 100% de la altura disponible */
+    font-size: 18px; /* El tamaño de la fuente dentro del contenido será de 18px */
+    font-weight: 500; /* El peso de la fuente será de 500 (semi-negrita) */
+}
+
+/* Estilo para el botón de cierre (x) del modal */
+.close {
+    color: #fff; /* El color del botón de cierre será blanco */
+    float: right; /* El botón de cierre se posiciona a la derecha del modal */
+    font-size: 28px; /* El tamaño de la fuente del botón de cierre será de 28px */
+    font-weight: bold; /* El peso de la fuente será negrita */
+    transition: all 0.5s ease; /* Aplica una transición suave de 0.5 segundos para todos los cambios */
+}
+
+/* Estilo para el botón de cierre cuando el usuario pasa el cursor sobre él */
+.close:hover,
+.close:focus {
+    color: black; /* El color del botón de cierre cambia a negro al pasar el ratón o al enfocarlo */
+    text-decoration: none; /* Elimina cualquier subrayado del botón */
+    cursor: pointer; /* Cambia el cursor a una mano (puntero) cuando el usuario pasa el ratón sobre el botón */
+}
+
+/* Estilo para el contenedor de incremento de letras */
+.container-incremento {
+    display: flex; /* Utiliza Flexbox para alinear los elementos dentro del contenedor */
+    position: fixed; /* El contenedor de incremento está fijo en la pantalla */
+    z-index: 100; /* El contenedor de incremento se mostrará por encima de otros elementos */
+}
+
+/* Estilo para los controles dentro del contenedor de incremento */
+.controls {
+    z-index: 1; /* Asegura que los controles estén por debajo de otros elementos del contenedor */
+}
+
+/* Estilo para los botones dentro del contenedor de incremento */
+.container-incremento .controls .boton2 {
+    padding: 10px; /* Añade 10px de relleno dentro del botón */
+    margin: 5px; /* Añade un margen de 5px alrededor del botón */
+    font-size: 16px; /* El tamaño de la fuente dentro del botón será de 16px */
+    cursor: pointer; /* El cursor cambiará a un puntero (mano) al pasar el ratón sobre el botón */
+}
+
+/* Estilo para el elemento #text-content */
+#text-content {
+    font-size: 16px; /* El tamaño de la fuente será de 16px */
+}
+
+/* Estilo para los botones dentro del contenedor de incremento con un fondo naranja */
+.container-incremento .controls .boton2 {
+    border: none; /* El botón no tendrá borde */
+    border-radius: 50%; /* El botón tendrá bordes redondeados con un radio de 50% (forma circular) */
+    background-color: rgb(255, 94, 0); /* El fondo del botón será naranja (#ff5e00) */
+    color: #fff; /* El color del texto del botón será blanco */
+}
+
+
+/*footer*/
+
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        footer {
+            background-color: var(--footer-fondo);
+            color: var(--footer-texto);
+            padding: 60px 0 30px;
+            font-size: 0.95em;
+            border-radius: 20px 20px 0 0;
+            margin-top: 120px;
+            width: 100%;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--footer-texto);
+        }
+
+        .footer-col p {
+            color: var(--footer-texto);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--footer-texto);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--footer-hover-link);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links a:last-child {
+            margin-right: 0;
+        }
+
+        .social-links ion-icon {
+            font-size: 24px;
+            color: var(--footer-texto);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover ion-icon {
+            color: var(--color-primario);
+            transform: scale(1.1);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            color: var(--footer-texto);
+            font-size: 1em;
+            caret-color: var(--color-blanco);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--footer-placeholder);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-borde);
+            color: var(--footer-texto);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .language-selector .material-icons {
+            font-size: 24px;
+            color: var(--footer-texto);
+        }
+
+        .language-selector select {
+            font-size: 1em;
+            background: var(--footer-input-fondo);
+            color: var(--footer-texto);
+            border: 1px solid var(--footer-borde);
+            padding: 10px 15px;
+            border-radius: 7px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg...%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .language-selector select:focus {
+            outline: 2px solid var(--color-primario);
+            border-color: var(--color-primario);
+        }
+
+        @media (max-width: 768px) {
+            .footer-columns {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                justify-content: center;
+            }
+        }

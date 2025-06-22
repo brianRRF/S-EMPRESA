@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Facial</title>
+  <meta name="viewport" content="width=320, initial-scale=1">
+  <!-- face-api.js -->
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <style>
+    body { font-family: sans-serif; background: #fafbfc; display:flex; flex-direction:column; align-items:center; }
+    #videoLogin { border-radius:8px; border:1px solid #ccc; margin-bottom:12px; }
+    .message { margin: 12px 0 0 0; font-weight: bold; }
+    .success { color: #28a745; }
+    .error { color: #dc3545; }
+    .loading { color: #007bff; }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2 class="center">Iniciar sesión con reconocimiento facial</h2>
+  <div class="center">
+    <video id="videoLogin" width="320" height="240" autoplay muted playsinline></video>
+    <canvas id="canvasLogin" width="320" height="240" style="display:none;"></canvas>
+    <div class="message" id="facialMsg"></div>
+  </div>
+  <script>
+    const MODELS_URL = "https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@0.22.2/weights";
+    let isModelLoaded = false, detectionReady = false, detectionResult = null, autoLoginInProgress = false;
+    let video = document.getElementById('videoLogin');
+    let canvas = document.getElementById('canvasLogin');
+    let msg = document.getElementById('facialMsg');
+
+    function setMsg(txt, type='info') {
+      msg.textContent = txt;
+      msg.className = "message " + type;
+    }
+
+    async function loadModels() {
+      setMsg('Cargando modelos...', 'loading');
+      await faceapi.nets.tinyFaceDetector.loadFromUri(MODELS_URL);
+      await faceapi.nets.faceLandmark68Net.loadFromUri(MODELS_URL);
+      await faceapi.nets.faceRecognitionNet.loadFromUri(MODELS_URL);
+      isModelLoaded = true;
+      setMsg('Modelos cargados. Permite la cámara...', 'loading');
+    }
+
+    async function startVideo() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({video: {width:320, height:240}});
+        video.srcObject = stream;
+      } catch (e) {
+        setMsg('No se pudo acceder a la cámara', 'error');
+      }
+    }
+
+    video.addEventListener('play', () => {
+      setMsg('Alinea tu rostro y espera la detección automática.', 'info');
+      detectLoop();
+    });
+
+    async function detectLoop() {
+      if (!isModelLoaded || autoLoginInProgress) return;
+      const result = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
+      if (result && result.detection && result.detection.score > 0.5) {
+        detectionReady = true;
+        detectionResult = result;
+        setMsg('¡Rostro detectado! Iniciando sesión automática...', 'success');
+        // Proceder al login automático solo una vez
+        autoLoginInProgress = true;
+        loginFacialAutomatico();
+      } else {
+        detectionReady = false;
+        detectionResult = null;
+        setMsg('Esperando detección de rostro...', 'info');
+      }
+      if (!autoLoginInProgress) requestAnimationFrame(detectLoop);
+    }
+
+    function loginFacialAutomatico() {
+      if (!detectionReady || !detectionResult) return;
+      setMsg('Verificando rostro...', 'loading');
+      fetch('verificar_facial_login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ descriptor: Array.from(detectionResult.descriptor) })
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.success) {
+          setMsg('¡Bienvenido! Redirigiendo...', 'success');
+          setTimeout(() => window.location.href = data.redirect || 'dashboard.php', 600);
+        } else {
+          setMsg(data.message || "No se reconoció tu rostro", 'error');
+          autoLoginInProgress = false;
+          setTimeout(() => {
+            setMsg('Alinea tu rostro y espera la detección automática.', 'info');
+            detectLoop();
+          }, 1400);
+        }
+      })
+      .catch(() => {
+        setMsg('Error de conexión con el servidor.', 'error');
+        autoLoginInProgress = false;
+        setTimeout(() => {
+          setMsg('Alinea tu rostro y espera la detección automática.', 'info');
+          detectLoop();
+        }, 1400);
+      });
+    }
+
+    (async function(){
+      await loadModels();
+      await startVideo();
+    })();
+  </script>
+</body>
+</html>

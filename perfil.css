@@ -1,0 +1,470 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+    text-decoration: none;
+}
+html {
+    font-size: 10px;
+}
+/*para los colores como tambien los tamaños de nuestro perfil para que sea el padre y probablememnte cambiar el color*/
+:root {
+    --f1-color:#fff;
+    --f2-color:#000;
+    --f3-color:rgba(0,0,0,0.8);
+    --f4-color:rgba(0,0,0,0.6);
+    --f5-color:#0099cc;
+    --f6-color:#88cee6;
+
+    --bg1-color:#fff;
+    --bg2-color:#000;
+    --bg3-color:#33ccff;
+    --bg4-color:#33cc33;
+    --bg5-color:#0099cc;
+    --bg6-color:rgba(0,0,0,0.2);
+    --bg7-color:rgba(0,0,0,0.2);
+    --glas-bg: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0.3)
+    );
+
+    --c-lg-bg:linear-gradient(45deg, #ff3399, #ff9933);
+
+   --xxx1-fs: 2.2rem;
+   --xx1-fs: 1.8rem;
+   --x1-fs: 1.6rem;
+   --1-fs: 1.4rem;
+   --m-fs: 1.2rem;
+   --s-fs: 1.1rem;
+   --xs-fs: 1rem;
+
+   --m-2-5: 2.5rem;
+   --m-1-8: 1.8rem;
+   --m-1-5: 1.5rem;
+   --m-0-6: 0.6rem;
+   --m-0-5: 0.5rem;
+   --m-0-3: 0.3rem;
+
+   --p-2-5: 2.5rem;
+   --p-1-5: 1.5rem;
+   --p-1-0: 1rem;
+   --p-0-8: 0.8rem;
+   --p-0-5: 0.5rem;
+   --p-0-4: 0.4rem;
+   --p-0-3: 0.3rem;
+
+
+
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/*para los fondos y las cartillas semitranparentes de el perfil*/
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    "header header"
+    "userProfile userDatails"
+    "work_skills timeline_about"
+    "work_skills timeline_about";
+    width: 85%;
+    height: 90vh;
+    background: var(--glas-bg);
+    padding: var(--p-1-5);
+    box-shadow: 0 0 5px rgba(255,255,255,0.5), 0 0 25px rgba(0,0,0,0.08);
+    grid-gap: 1rem;
+}
+header {
+    grid-area: header;
+}
+.userProfile {
+    grid-area: userProfile;
+}
+.work_skills {
+    grid-area: work_skills;
+}
+.userDatails {
+    grid-area: userDatails;
+}
+.timeline_about {
+    grid-area: timeline_about;
+}
+
+.container .card {
+    background: var(--glas-bg);
+    backdrop-filter: blur(3rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 25px rgba(0,0,0,0.05);
+    padding: var(--p-1-5);
+}
+
+
+.container header {
+    padding: 0 var(--p-2-5);
+}
+.container header .brandLogo {
+    display: flex;
+    align-items: center;
+}
+.container header .brandLogo figure img {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.container header .brandLogo span {
+    font-size: var(--x1-fs);
+    font-weight: 700;
+    margin-left: var(--m-0-5);
+}
+
+.container .userProfile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+.container .userProfile .profile figure img {
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+}
+
+.container .work_skills {
+    padding: var(--p-1-5); 
+}
+.work_skills .work .heading,
+.work_skills .skills .heading {
+    position: relative;
+    font-size: var(--xs-fs);
+    color: rgba(0,0,0,0.6);
+    text-decoration: uppercase;
+    margin-bottom: var(--m-1-5);
+
+}
+.work_skills .work .heading::before,
+.work_skills .skills .heading::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: .1rem;
+    width: 88%;
+    background: var(--bg6-color);
+}
+.work_skills .work .primary,
+.work_skills .work .secundary {
+    position: relative;
+}
+.work_skills .work .primary h1,
+.work_skills .work .secundary h1 {
+    font-size: var(--1-fs);
+    color: var(--f3-color);
+    margin-bottom: var(--m-0-6);
+}
+.work_skills .work .primary span,
+.work_skills .work .secundary span {
+    position: absolute;
+    top: 0;
+    right: 3rem;
+    font-weight: 700;
+    font-size: var(--s-fs);
+    color: var(--f5-color);
+    background: #e6f2ff;
+    padding: var(--p-0-4) var(--p-1-0);
+    border-radius: 0.4rem;
+}
+.work_skills .work .primary p,
+.work_skills .work .secundary p {
+    margin-bottom: var(--m-1-8);
+    font-size: var(--m-fs);
+    line-height: 1.6rem;
+}
+.work_skills .skills ul li {
+    position: relative;
+    font-size: var(--m-fs);
+    line-height: 1.8rem;
+    margin: var(--m-0-5);
+    color: var(--f2-color);
+    font-weight: 500;
+}
+.work_skills .skills ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: .2rem;
+    background: var(--bg3-color);
+    width: 50%;
+    animation: skills 8s linear infinite;
+    animation-delay: calc(-2s * var(--i));
+
+} 
+
+@keyframes skills {
+    0% {
+        white-space: 50%;
+        filter: hue-rotate(180deg);
+    }
+    50% {
+        width: 0;
+    }
+    0% {
+        white-space: 50%;
+        filter: hue-rotate(0);
+    }
+
+}
+
+
+.userDatails {
+    position: relative;
+    padding: var(--p-1-5) var(--p-2-5);
+}
+.userDatails .userName h1 {
+    font-size: var(--xxx1-fs);
+
+}
+.userDatails .userName .map {
+    position: absolute;
+    top: 2.5rem;
+    left: 18.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userDatails .userName .map ion-icon {
+    margin-right:var(--m-0-3) ;
+    font-size: var(--m-fs);
+}
+.userDatails .userName .map span {
+    font-size: var(--s-fs);
+    color: var(--f3-color);
+    font-weight: 700;
+}
+.userDatails .userName p {
+    font-size: var(--m-fs);
+    font-weight: 700;
+    color: var(--f5-color);
+    margin-bottom: var(--m-1-8);
+}
+.userDatails .rank {
+    position: relative;
+    margin-bottom: var(--m-1-8);
+}
+.userDatails .rank .heading {
+    font-size: var(--xs-fs);
+    color: var(--f4-color);
+    text-transform: uppercase;
+    margin-bottom: var(--m-0-6);
+}
+.userDatails .rank span {
+    font-size: var(--xx1-fs);
+    font-weight: 700;
+
+}
+.userDatails .rank .rating {
+    position: absolute;
+    top: 2.7rem;
+    left: 3.5rem;
+}
+.userDatails .rank .rating ion-icon {
+    color: var(--f5-color);
+    font-size: var(--1-fs);
+}
+.userDatails .btns ul,
+.userDatails .btns ul li {
+    display: flex;
+    align-items: center;
+}
+.userDatails .btns ul li {
+    margin-right: var(--m-2-5);
+    border-radius: 0.5rem;
+}
+.userDatails .btns ul li ion-icon {
+    margin-right: var(--m-0-5);
+    font-size: var(--x1-fs);
+}
+.userDatails .btns ul li a {
+    font-size: var(--1-fs);
+    color: var(--f2-color);
+    font-weight: 500;
+}
+.userDatails .btns ul .active {
+    background: #e6f2ff;
+    padding: var(--p-0-5) var(--p-1-5);
+}
+.userDatails .btns ul .active a,
+.userDatails .btns ul .active ion-icon {
+    color: var(--f5-color);
+}
+
+
+.timeline_about{
+    padding: var(--p-2-5);
+}
+.timeline_about .tabs ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--m-2-5);
+
+}
+.timeline_about .tabs ul::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bg7-color);
+}
+.timeline_about .tabs ul li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: var(--m-2-5);
+    padding-bottom: var(--p-0-8);
+    cursor: pointer;
+}
+.timeline_about .tabs ul li span {
+    font-size: var(--1-fs);
+    font-weight: 500;
+}
+.timeline_about .tabs ul li ion-icon {
+    margin-right: var(--m-0-5);
+}
+.timeline_about .tabs ul .active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--bg5-color);
+}
+.timeline_about .contact_info .heading,
+.timeline_about .basic_info .heading {
+    font-size: var(--xs-fs);
+    color: var(--f4-color);
+    text-transform: uppercase;
+    margin-bottom: var(--m-1-5);
+
+}
+.timeline_about .contact_info ul,
+.timeline_about .basic_info ul {
+    margin-bottom: var(--m-1-5);
+}
+.timeline_about .contact_info ul li,
+.timeline_about .basic_info ul li {
+    display: flex;
+    margin: var(--m-0-5) 0;
+}
+.timeline_about .contact_info ul li h1,
+.timeline_about .basic_info ul li h1 {
+    font-weight: 500;
+    font-size: var(--m-fs);
+    min-width: 15rem;
+}
+.timeline_about .contact_info ul li span,
+.timeline_about .basic_info ul li span {
+    font-size: var(--m-fs);
+}
+.timeline_about .contact_info ul .phone span,
+.timeline_about .contact_info ul .email span,
+.timeline_about .contact_info ul .site span {
+    color: var(--f5-color);
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+      font-size: 9px;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    html {
+      font-size: 8px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    html {
+      font-size: 10px;
+    }
+  
+    
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "header"
+        "userProfile"
+        "userDatails"
+        "work_skills"
+        "timeline_about";
+      overflow-x: hidden;
+      overflow-y: inherit;
+      padding: 0;
+      width: 90%;
+      height: 100%;
+      box-shadow: none;
+    }
+  
+    .container .card {
+      backdrop-filter: none;
+    }
+  
+    .userDatails {
+      margin-bottom: 3rem;
+    }
+  
+    .container::before,
+    .container::after {
+      display: none;
+    }
+  
+    
+    .container header {
+      padding: 2.5rem;
+    } 
+  }
+  
+  @media screen and (max-width: 500px) {
+    .container {
+      width: 100%;
+      overflow: initial;
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+    .main_bg {
+      animation: none;
+    }
+  }
+
+
+
+/* Estilos para el fondo de perfil de usuario */
+.main_bg {
+    position: absolute; /* Posiciona el fondo de manera absoluta con respecto al contenedor */
+    top: 0; /* Coloca el fondo en la parte superior de la pantalla */
+    left: 0; /* Coloca el fondo en el borde izquierdo de la pantalla */
+    width: 100%; /* Hace que el fondo ocupe todo el ancho de la pantalla */
+    height: 100vh; /* Hace que el fondo ocupe toda la altura de la pantalla */
+    background: var(--color-usuario-fondo); /* Establece el fondo utilizando la variable de color definida */
+    background-position: left; /* Coloca el fondo hacia la izquierda */
+    z-index: -1; /* Coloca el fondo detrás de los demás elementos */
+    filter: blur(10px); /* Aplica un desenfoque de 10px al fondo */
+}

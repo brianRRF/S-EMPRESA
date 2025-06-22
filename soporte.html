@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="Stlys.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        
+        main {
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: #fffde7;
+            color: #333;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2979ff;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffeb3b;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .features {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer; /* Indica que es interactivo */
+        }
+
+        .feature-item .icon {
+            font-size: 2em;
+            color: #2979ff;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h3 {
+            color: #2979ff;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            background-color: #2979ff;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .contact p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            background-color: #ffeb3b;
+            color: #333;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #support-form-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculto inicialmente */
+        }
+
+        #support-form-container h2 {
+            color: #2979ff;
+            margin-bottom: 15px;
+        }
+
+        #support-form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #support-form-container input[type="text"],
+        #support-form-container input[type="email"],
+        #support-form-container textarea {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #support-form-container button[type="submit"] {
+            background-color: #2979ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #support-form-container button[type="submit"]:hover {
+            background-color: #1e60c9;
+        }
+    </style>
+</head>
+<body>
+   <header id="header">
+<div class="container_header">
+    <div class="logo">
+        <img src="4-icono.ico" alt="">
+    </div>
+<div class="container_nav">
+    <nav id="nav">
+        <ul>
+            <li><a href="#" class="select" id="ini">Inicio</a></li>
+            <li><a href="blognew.html" id="blo">Blog</a></li>
+            <li><a href="#" id="per">Perfil</a></li>
+            <li><a href="#" id="emp">Empresa</a></li>
+        </ul>
+    </nav>
+    <div class="btn_menu" id="btn_menu"><i class="fa-solid fa-bars"></i></div>
+</div>
+</div>
+<div class="container-incremento">
+    <div class="controls">
+        <button class="boton2" id="increase-font" onclick="changeFontSize(1)">A+</button>
+        <button class="boton2" id="decrease-font" onclick="changeFontSize(-1)">A-</button>
+    </div>
+</div>
+</header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenido a mi increíble sitio web</h1>
+                <p>Un lugar donde encontrarás información valiosa y soluciones creativas.</p>
+                <button class="cta-button">¡Contáctanos ahora!</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Nuestras Características Principales</h2>
+            <div class="feature-grid">
+                <div class="feature-item" data-feature="Innovación">
+                    <i class="icon">✨</i>
+                    <h3>Innovación</h3>
+                    <p>Siempre a la vanguardia con ideas frescas.</p>
+                </div>
+                <div class="feature-item" data-feature="Soluciones">
+                    <i class="icon">💡</i>
+                    <h3>Soluciones</h3>
+                    <p>Ofrecemos soluciones efectivas a tus problemas.</p>
+                </div>
+                <div class="feature-item" data-feature="Colaboración">
+                    <i class="icon">🤝</i>
+                    <h3>Colaboración</h3>
+                    <p>Trabajamos contigo para alcanzar tus metas.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="support-form-container">
+            <h2>Formulario de Soporte</h2>
+            <form id="support-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto">
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+                <input type="hidden" id="feature-seleccionada" name="feature-seleccionada">
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </div>
+
+        <section class="contact">
+            <h2>¿Listo para empezar?</h2>
+            <p>Ponte en contacto con nosotros hoy mismo.</p>
+            <button class="contact-button">¡Habla con un experto!</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Página Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureItems = document.querySelectorAll('.feature-item');
+            const supportFormContainer = document.getElementById('support-form-container');
+            const featureSeleccionadaInput = document.getElementById('feature-seleccionada');
+            const supportForm = document.getElementById('support-form');
+
+            featureItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const feature = this.getAttribute('data-feature');
+                    featureSeleccionadaInput.value = feature;
+                    supportFormContainer.style.display = 'block';
+                    // Opcional: Puedes hacer scroll hasta el formulario
+                    supportFormContainer.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Opcional: Puedes agregar aquí la lógica para enviar el formulario
+            supportForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evita la recarga de la página
+                alert('Formulario enviado para la característica: ' + featureSeleccionadaInput.value);
+                // Aquí podrías enviar los datos del formulario a un servidor
+                supportFormContainer.style.display = 'none'; // Oculta el formulario después de "enviar"
+                supportForm.reset(); // Limpia el formulario
+            });
+        });
+    </script>
+</body>
+</html>

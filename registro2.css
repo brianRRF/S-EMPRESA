@@ -1,0 +1,175 @@
+
+:root {
+    --color-dark: #15181f;
+    --color-dark-x: #2d343f;
+    --color-dark-xx: #1f232b;
+    --color-light: #ffffff;
+    --color-grey: #f5f6f8;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    background-color: var(--color-grey);
+    color: var(--color-light);
+    letter-spacing: .05rem;
+    text-decoration: none;
+
+    grid-template-areas: 'h'
+        'm'
+        'a'
+        'f';
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto;
+}
+
+
+
+
+
+.bg-light {
+    background-color: var(--color-light)!important;
+}
+
+.bg-dark {
+    background-color: var(--color-dark)!important;
+}
+
+.p-6 {
+    padding: 4rem 7rem;
+}
+
+.contact-box {
+    padding: 0;
+}
+
+.btn {
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    min-width: 10rem;
+    background-color: var(--color-dark);
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--color-dark-xx);
+}
+
+
+.form-control {
+    background-color: var(--color-dark-xx);
+    border: 2px solid var(--color-dark-xx);
+    border-radius: .2rem;
+    padding: 1.5rem 1rem;
+}
+
+.register-bg {
+    background-image: url('imagenes/empresario.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.testiomonial {
+    bottom: 10px
+}
+
+@media (max-width: 575.98px) {
+    .p-6 {
+        padding: 2rem;
+    }
+
+    .contact-box {
+        padding: 0;
+    }
+
+    .width-100 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) { 
+    .register-bg {
+        min-height: 50vh;
+    }
+}
+
+/* Mover el botón más abajo y centrarlo */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem; /* Ajusta este valor si quieres más espacio */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 rgba(93, 95, 95, 0.565);
+        rotate: 20deg;
+    }
+
+    50% {
+        rotate: -20deg;
+    }
+
+    75% {
+        box-shadow: 0 0 0 10px rgba(93, 95, 95, 0.376);
+    }
+
+    100% {
+        box-shadow: 0 0 0 13px rgba(93, 95, 95, 0.188);
+        rotate: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 720px) {
+    .form_image_container {
+        width: auto;
+        min-height: 244px;
+    }
+
+    .form_container {
+        flex-direction: column;
+        aspect-ratio: unset;
+    }
+
+
+}
+
+@media screen and (min-width: 720px) {
+    .menu_item.wide_view {
+        display: none;
+    }
+    .menu_item.mobile_view {
+        display: flex;
+    }
+}

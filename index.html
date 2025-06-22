@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-Empresa</title>
+    <link rel="icon" href="4-icono.ico">
+    
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="Stlys.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+
+<header id="header">
+<div class="container_header">
+    <div class="logo">
+        <img src="4-icono.ico" alt="">
+    </div>
+<div class="container_nav">
+    <nav id="nav">
+        <ul>
+            <li><a href="#" class="select" id="ini">Inicio</a></li>
+            <li><a href="blognew.php" id="blo">Blog</a></li>
+            <li><a href="#" id="per">Perfil</a></li>
+            <li><a href="#" id="emp">Empresa</a></li>
+        </ul>
+    </nav>
+    <div class="btn_menu" id="btn_menu"><i class="fa-solid fa-bars"></i></div>
+</div>
+</div>
+<div class="container-incremento">
+    <div class="controls">
+        <button class="boton2" id="increase-font" onclick="changeFontSize(1)">A+</button>
+        <button class="boton2" id="decrease-font" onclick="changeFontSize(-1)">A-</button>
+    </div>
+</div>
+</header>
+
+
+
+
+<div class="container_all" id="container_all">
+    <div class="cover">
+
+
+            <div class="bg_color"></div>
+            <div class="weve w1"></div>
+            <div class="weve w2"></div>
+
+        <div class="container_cover">
+            <div class="container_info">
+                <h1 id="ser">SERVI</h1>
+                <h2>EMPRESA</h2>
+                <p id="text-content">Promoción de la Empresa: Cómo resaltar las características únicas y los valores de tu empresa.
+                    Calidad de los Servicios: La importancia de proporcionar servicios de alta calidad y cómo esto beneficia a tus clientes.</p>
+                <input  type="button" value="INICIAR" onclick="redi()">
+                <input type="button" value="REGISTRAR" onclick="redi2()">
+            </div>
+            <div class="container_vector">
+                <img src="Removal-homal.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="body_cabeza">
+        <div class="container_carrs">
+            <div class="carta c1">
+                <div class="icono">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="info_grafia">
+                    <p id="carta1">¿QUE PROPOCITO? <br>
+                        Esta pagina esta centrada a aquellas empresas que nececitan una ayuda para hacer su marketig y ayuda a usuarios
+                    </p>
+                    <input type="button" value="Leer más" onclick="openModal('modal1')">
+                </div>
+            </div>
+            <div class="carta c2">
+                <div class="icono">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="info_grafia">
+                    <p id="carta2">USUARIOS <br>
+                    Los usuarios tendran mas facilidad de encontrar un empleo perfecto y estar mas informado de esas empresas que son dificiles
+                    </p>
+                    <input type="button" value="Leer más" onclick="openModal('modal2')">
+                </div>
+            </div>
+            <div class="carta c3">
+                <div class="icono">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div class="info_grafia">
+                    <p id="carta3">EMPRESAS <br>
+                    Esas empresas que no pueden hacer marqueting y ensañar sus mejores empleados y comentarios y haci ser mejores empresas 
+                    </p>
+                    <input type="button" value="Leer más" onclick="openModal('modal3')">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="modal1" class="modal">
+        <div class="modal-content1">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <p>Esta pagina esta centrada a aquellas empresas que nececitan una ayuda para hacer su marketig y ayuda a usuarios...
+                esta pagina te ayudara mucho en tu emprendimiento y te ayudara para que tu empresa se registre demaciado facil y rapido nosotros somos S-EMPRESA que es para servir a nuestros usuarios hacia un camino mas comodo y facil incluso para encontrasr o solicitar trabajadores
+             </p>
+        </div>
+    </div>
+    
+    <div id="modal2" class="modal">
+        <div class="modal-content2">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <p>Los usuarios tendran mas facilidad de encontrar un empleo perfecto y estar mas informado de esas empresas que son dificiles <br>
+            los usuarios podran ver los espacios publicos y ver empleos o trabajos tambien tenfran cierta comunicacion con el propetario de dicho espacio para que haci puedan hacer tramites o calificar al dueño como tambien la empresa 5 estrellas a solamente 0 y haci recomendar o no recomendar dicho propetario</p>
+        </div>
+    </div>
+    
+    <div id="modal3" class="modal">
+        <div class="modal-content3">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <p>Esas empresas que no pueden hacer marqueting y ensañar sus mejores empleados y comentarios y haci ser mejores empresas <br>
+            Aqui puedes registrar tu empresa y gacer marketing como tambien tener segutidad y y emplear la seguridad de sus empleados y supervicion como tambien pueden ver las otras personas en que lugar estan ubicados y haci ser mas especificos con el echo de ser mejores
+        </p>
+        </div>
+    </div>
+    
+
+
+
+<div class="container_baner">
+    <div class="baner">
+        <div class="baner_icon-heart">
+            <img src="heart_notify.png" id="icon_heart" alt="">
+        </div>
+        <div class="baner_icon-fire">
+            <img src="fire-dynamic-color.png" id="icon_fire" alt="">
+        </div>
+        <div class="baner_text">
+            <h2>Puedes invocar ena idea para tu nuevo empleo y ayudar a los usuarios que lo denecesiten y que les interese</h2>
+            <a href="#">Leer mas</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div style="flex-grow: 1;"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>S-EMPRESA</h4>
+                    <p>El uso inadecuado de las aplicaciones o intentos de hackeo resultarán en la suspensión permanente del sitio y los usuarios.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                        <a href="#" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="changelong.html">Versiones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Avisos</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Suscríbete para recibir actualizaciones directamente en tu correo.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit">Suscribir</button>
+                    </form>
+                    <div class="language-selector">
+                        <span class="material-icons">language</span>
+                        <select id="languageSelect">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="pt">Português</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> S-EMPRESA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </footer>
+
+
+
+
+
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="traduccion.js"></script>
+<script src="script.js"></script>
+    <script src="redirigir.js"></script>
+    
+    
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mostrar el año actual
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Función del selector de idioma
+            document.getElementById('languageSelect').addEventListener('change', function () {
+                const lang = this.value;
+                console.log('Idioma seleccionado:', lang);
+            });
+
+            // Envío del formulario del newsletter
+            document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert('¡Gracias por suscribirte!');
+                this.querySelector('input[type="email"]').value = '';
+            });
+        });
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-EMPRESA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="registro2.css">
+    <style>
+        input.text-uppercase {
+            text-transform: uppercase;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            margin-top: 1rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-box">
+        <div class="row no-gutters bg-light">
+            <div class="col-xl-5 col-lg-12 register-bg bg-light">
+                <div class="position-absolute testiomonial p-4">
+                    <h3 class="font-weight-bold text-light">S-EMPRESA</h3>
+                    <p class="lead text-light">El mejor servicio</p>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-12 d-flex">
+                <div class="container align-self-center p-6">
+                    <h1 class="font-weight-bold mb-3 text-dark">Registro de Empresa</h1>
+                    <p class="text-muted mb-5 text-dark">Todos los campos son obligatorios para registrarse.</p>
+
+                    <form id="registerCompanyForm" action="registro_empresa.php" method="POST" enctype="multipart/form-data">
+                        <!-- Datos generales de la empresa -->
+                        <h4 class="font-weight-bold text-dark">1. Datos Generales de la Empresa</h4>
+                        <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
+                                <label class="font-weight-bold text-dark">Nombre legal de la empresa <span class="text-danger">*</span></label>
+                                <input type="text" name="nombre_legal" class="form-control text-uppercase" placeholder="Nombre legal" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="font-weight-bold text-dark">Nombre comercial</label>
+                                <input type="text" name="nombre_comercial" class="form-control text-uppercase" placeholder="Nombre comercial" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="font-weight-bold text-dark">Número de identificación fiscal <span class="text-danger">*</span></label>
+                                <input type="text" name="identificacion_fiscal" class="form-control" placeholder="RUC, CIF, NIF, etc." required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="font-weight-bold text-dark">Teléfono de la empresa</label>
+                                <input type="tel" name="telefono_empresa" class="form-control" placeholder="Teléfono" required>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Selecciona la dirección física de tu empresa en el mapa <span class="text-danger">*</span></label>
+                            <div id="map"></div>
+                            <input type="text" name="direccion_empresa" id="direccion_empresa" class="form-control mt-3" placeholder="Dirección seleccionada" readonly required>
+                            <input type="hidden" name="empresa_latitud" id="empresa_latitud" required>
+                            <input type="hidden" name="empresa_longitud" id="empresa_longitud" required>
+                        </div>
+
+                        <!-- Datos del representante legal -->
+                        <h4 class="font-weight-bold text-dark">2. Datos del Representante Legal</h4>
+                        <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
+                                <label class="font-weight-bold text-dark">Nombre completo <span class="text-danger">*</span></label>
+                                <input type="text" name="nombre_representante" class="form-control text-uppercase" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="font-weight-bold text-dark">Documento de identidad <span class="text-danger">*</span></label>
+                                <input type="text" name="documento_identidad" class="form-control" placeholder="DNI, Pasaporte, etc." required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="font-weight-bold text-dark">Cargo en la empresa</label>
+                                <input type="text" name="cargo_empresa" class="form-control text-uppercase" placeholder="Cargo" required>
+                            </div>
+                        </div>
+
+                        <!-- Documentación legal -->
+                        <h4 class="font-weight-bold text-dark">3. Documentación Legal</h4>
+                        <div class="form-group mb-2">
+                            <label class="font-weight-bold text-dark">Certificado de constitución de la empresa</label>
+                            <input type="file" name="certificado_constitucion" class="form-control file-input" accept="image/*,application/pdf" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label class="font-weight-bold text-dark">Registro mercantil o equivalente</label>
+                            <input type="file" name="registro_mercantil" class="form-control file-input" accept="image/*,application/pdf" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label class="font-weight-bold text-dark">Licencias o permisos específicos</label>
+                            <input type="file" name="licencias_permisos" class="form-control file-input" accept="image/*,application/pdf" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label class="font-weight-bold text-dark">Documento de identidad del representante legal</label>
+                            <input type="file" name="documento_identidad_representante" class="form-control file-input" accept="image/*,application/pdf" required>
+                        </div>
+
+                        <!-- Información comercial -->
+                        <h4 class="font-weight-bold text-dark">4. Información Comercial</h4>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Breve descripción del negocio</label>
+                            <textarea name="descripcion_negocio" class="form-control" placeholder="Servicios o productos que ofrece" required></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Página web y redes sociales</label>
+                            <input type="text" name="pagina_web" class="form-control" placeholder="URL de tu página web o redes sociales" required>
+                        </div>
+
+                        <!-- Requisitos técnicos -->
+                        <h4 class="font-weight-bold text-dark">5. Requisitos Técnicos</h4>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Dominio y hosting</label>
+                            <input type="text" name="dominio_hosting" class="form-control" placeholder="Dominio y hosting" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Certificado SSL</label>
+                            <input type="text" name="certificado_ssl" class="form-control" placeholder="Certificado SSL" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold text-dark">Plataforma o CMS</label>
+                            <input type="text" name="plataforma_cms" class="form-control" placeholder="WordPress, Shopify, etc." required>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="form-group mb-5 text-center">
+                            <button id="registerCompanyBtn" class="btn btn-primary width-100" type="submit">Registrar Empresa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([23.634501, -102.552784], 5); // Coordenadas iniciales
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        let marker = L.marker([23.634501, -102.552784], { draggable: true }).addTo(map);
+
+        const updateAddress = async (lat, lng) => {
+            const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Error al obtener la dirección");
+
+                const data = await response.json();
+                const address = data.display_name || "Dirección no disponible";
+
+                document.getElementById('direccion_empresa').value = address;
+                document.getElementById('empresa_latitud').value = lat;
+                document.getElementById('empresa_longitud').value = lng;
+            } catch (error) {
+                console.error("Error al obtener la dirección:", error);
+                document.getElementById('direccion_empresa').value = "Error al obtener la dirección";
+            }
+        };
+
+        map.on('click', (e) => {
+            const { lat, lng } = e.latlng;
+            marker.setLatLng([lat, lng]);
+            updateAddress(lat, lng);
+        });
+
+        marker.on('moveend', () => {
+            const { lat, lng } = marker.getLatLng();
+            updateAddress(lat, lng);
+        });
+    </script>
+</body>
+</html>

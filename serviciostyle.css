@@ -1,0 +1,400 @@
+:root {
+            --color-primario: #007bff;
+            --color-secundario: #6c757d;
+            --color-texto: #343a40;
+            --color-texto-claro: #6f757b;
+            --color-fondo: #f8f9fa;
+            --color-blanco: #ffffff;
+            --color-borde: #e9ecef;
+
+            /* Colores del footer */
+            --footer-fondo: #feba0e;
+            --footer-texto: #343a40;
+            --footer-hover-link: #fff;
+            --footer-input-fondo: rgba(0,0,0,0.1);
+            --footer-placeholder: rgba(52,58,64,0.7);
+            --footer-borde: rgba(0,0,0,0.1);
+        }
+
+        * {
+    margin: 0;  /* Elimina los márgenes predeterminados de todos los elementos */
+    padding: 0; /* Elimina el relleno predeterminado de todos los elementos */
+    box-sizing: border-box; /* Cambia el modelo de caja para que el padding y el border se incluyan en el ancho y alto de los elementos */
+    text-decoration: none; /* Elimina los estilos de subrayado en los enlaces */
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: #feba0b;
+    color: white;
+    
+
+}
+
+
+/*titulo de chang*/
+
+.title {
+ color: #333;
+ text-align: center;
+ margin: 15px;
+ font-size: 20px;
+
+}
+
+
+/* Tarjetas de los servicios */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 28px;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Estilos footer */
+
+       .container_footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        footer {
+            background-color: var(--footer-fondo);
+            color: var(--footer-texto);
+            padding: 60px 0 30px;
+            font-size: 0.95em;
+            border-radius: 20px 20px 0 0;
+            margin-top: 120px;
+            width: 100%;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--footer-texto);
+        }
+
+        .footer-col p {
+            color: var(--footer-texto);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--footer-texto);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--footer-hover-link);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links a:last-child {
+            margin-right: 0;
+        }
+
+        .social-links ion-icon {
+            font-size: 24px;
+            color: var(--footer-texto);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover ion-icon {
+            color: var(--color-primario);
+            transform: scale(1.1);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            color: var(--footer-texto);
+            font-size: 1em;
+            caret-color: var(--color-blanco);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--footer-placeholder);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-borde);
+            color: var(--footer-texto);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .language-selector .material-icons {
+            font-size: 24px;
+            color: var(--footer-texto);
+        }
+
+        .language-selector select {
+            font-size: 1em;
+            background: var(--footer-input-fondo);
+            color: var(--footer-texto);
+            border: 1px solid var(--footer-borde);
+            padding: 10px 15px;
+            border-radius: 7px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg...%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .language-selector select:focus {
+            outline: 2px solid var(--color-primario);
+            border-color: var(--color-primario);
+        }
+
+        @media (max-width: 768px) {
+            .footer-columns {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                justify-content: center;
+            }
+        }
+
+/*icons de tarjetas*/
+
+/* ==== ICON WRAPPER ==== */
+.icon-wrapper {
+  background: linear-gradient(145deg, #2196f3, #2196f3);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 20px #2196f3;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.icon-wrapper i {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* ==== ICON FLOAT ANIMATION ==== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+
+/*Codigo  menu superior*/
+
+
+/* Contenedor del header que maneja el espacio interno */
+.container_header {
+    max-width: 1200px; /* El ancho máximo del contenedor será de 1200px */
+    height: 100%; /* El contenedor ocupará el 100% de la altura disponible */
+    display: flex; /* Usa Flexbox para el layout */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del eje horizontal con espacio entre ellos */
+    margin: auto; /* Centra el contenedor en la página */
+    padding: 5px 20px; /* Añade un espacio de 20px a los lados del contenedor */
+    
+}
+
+/* Estilo para el logo dentro del header */
+header .logo {
+    height: 100%; /* El logo ocupa toda la altura del header */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    
+}
+
+/* Estilo para la imagen del logo */
+.logo img {
+    width: 50px; /* La imagen tendrá un ancho fijo de 50px */
+}
+
+/* Contenedor para la barra de navegación dentro del header */
+.container_nav {
+    position: relative; /* El contenedor de la navegación tiene posición relativa */
+    height: 100%; /* La altura del contenedor es 100% */
+    padding-top: 15px;
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    height: 100%; /* La barra de navegación ocupa el 100% de la altura */
+}
+
+/* Estilo para la lista de navegación */
+nav ul {
+    height: 100%; /* La lista ocupa el 100% de la altura */
+    display: flex; /* Usa Flexbox para distribuir los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilo para cada item dentro de la lista de navegación */
+nav ul li {
+    margin: 0px 20px; /* Añade un margen de 20px a cada lado de los elementos de la lista */
+    list-style: none; /* Elimina el estilo de lista predeterminado (como los puntos) */
+}
+
+/* Estilo para los enlaces dentro de los items de la lista de navegación */
+nav ul li a {
+    color: #000; /* El color del texto será negro */
+    font-size: 16px; /* El tamaño de la fuente será de 16px */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    
+}
+
+/* Estilo para la barra de navegación cuando tiene la clase nav_mod */
+.nav_mod {
+    height: 70px; /* La barra de navegación tendrá una altura de 70px */
+    box-shadow: 1px 1px 10px 0px #00000010; /* Añade una sombra sutil a la barra */
+    background: white; /* El fondo será blanco */
+}
+
+/* Estilo para el botón de selección (por ejemplo, un botón de acción) */
+.select {
+    background: rgb(255, 94, 0); /* El fondo del botón será un color naranja */
+    padding: 10px 30px; /* Añade un relleno de 10px arriba y abajo, y 30px a los lados */
+    color: white; /* El texto será de color blanco */
+    border-radius: 20px; /* Las esquinas estarán redondeadas con un radio de 20px */
+    transition: all 300ms; /* Agrega una transición suave para todos los cambios */
+}
+
+/* Estilo para el botón de selección cuando se pasa el cursor sobre él */
+.select:hover {
+    box-shadow: 1px 1px 30px -10px #20202049; /* Añade una sombra más pronunciada cuando se pasa el cursor */
+    color: #000; /* Cambia el color del texto a negro cuando se pasa el cursor */
+}
+
+/* Estilo para el botón de menú */
+.btn_menu {
+    width: 50px; /* El botón tendrá un ancho de 50px */
+    height: 50px; /* El botón tendrá una altura de 50px */
+    font-size: 20px; /* El tamaño de la fuente será de 20px */
+    cursor: pointer; /* El cursor será un puntero para indicar que es interactivo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    border-radius: 50%; /* Hace que el botón tenga bordes redondeados (circular) */
+    transition: background 300ms; /* Agrega una transición suave al fondo del botón */
+    display: none; /* El botón de menú no se mostrará por defecto */
+}
+
+/* Estilo para el botón de menú cuando el cursor pasa sobre él */
+.btn_menu:hover {
+    background: rgba(0,0,0,0.5); /* El fondo se vuelve semitransparente y negro cuando se pasa el cursor */
+}

@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog</title>
+  <!--Links de la pagina-->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="changelong.css">
+  <style>
+    :root {
+      --accent-color: #feba0b;
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #fff;
+      --card-light: #f9f9f9;
+      --card-dark: #1e1e1e;
+      --primary-color: #feba0b;
+      --primary-best: #2196f3;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+       background: linear-gradient(to bottom right, #eef2f7, #f9fafb);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    .card,
+    .changelog-card1,
+    .changelog-card2,
+    .changelog-card3,
+    .changelog-card4 {
+     background: var(--card-light);
+     color: var(--text-light);
+    }
+    body.dark .card,
+    body.dark .changelog-card1,
+    body.dark .changelog-card2,
+    body.dark .changelog-card3,
+    body.dark .changelog-card4 {
+     background: var(--card-dark);
+     color: var(--text-dark);
+    }
+
+
+    
+    .changelog-layout {
+      
+      display: flex;
+      flex-wrap: nowrap; /* ahora no permite que las tarjetas bajen a otra línea */
+      justify-content: flex-start; /* alinea las tarjetas al inicio horizontalmente */
+      align-items: flex-start;
+      gap: 3rem; /*espacios entre las tarjetas de manera horizontal*/
+      padding: 3rem 11rem; /*relleno */
+      overflow-x: auto; /*permite desplazamiento horizontal si no caben en pantalla */
+    }
+
+     /* mejora visual del scroll horizontal */
+    .changelog-layout::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .changelog-layout::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 5px;
+    }
+
+
+    .changelog-card1,
+    .changelog-card2,
+    .changelog-card3,
+    .changelog-card4 {
+      
+      flex: 0 1 350px;
+      max-width: 500px;
+      background: var(--card-light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease
+    }
+
+
+    body.dark .changelog-card1,
+    body.dark .changelog-card2,
+    body.dark .changelog-card3,
+    body.dark .changelog-card4 {
+      background: var(--card-dark);
+    }
+
+    .changelog-card1:hover,
+    .changelog-card2:hover,
+    .changelog-card3:hover,
+    .changelog-card4:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-top-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .status-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    .status-icons {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-left: 6px;
+    }
+
+    .verified {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .verified i {
+      font-size: 40px;
+      color: #1e88e5;
+    }
+
+    .verified-text {
+      font-size: 19px;
+      font-weight: 600;
+      color: #1d1d1d;
+    }
+
+    .text-desar {
+      font-size: 14px;
+      color: gray;
+      margin-left: 55px;
+      font-weight: 400;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .notification {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .notification i {
+      color: white;
+      background-color: #feba0b;
+      border-radius: 50%;
+      padding: 10px;
+      display: flex;
+      margin-left: 2px;
+      margin-top: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .notification-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: #1d1d1d;
+      margin-left: 10px;
+      margin-top: 15px;
+    }
+
+    .text-notif {
+      font-size: 14px;
+      color: gray;
+      margin-left: 55px;
+      font-weight: 400;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .vertical-line {
+      position: absolute;
+      top: 36px;
+      left: 25px;
+      width: 1px;
+      height: 180px;
+      background-color: #B0B0B0;
+      z-index: 1;
+    }
+
+    .toggle-btn {
+      background: var(--primary-best);
+      border: none;
+      padding: 0.4rem 0.8rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn i {
+      margin-left: 0.5rem;
+    }
+
+    .time {
+      font-size: 0.85rem;
+      color: gray;
+      align-self: flex-end;
+      margin-top: auto;
+    }
+
+    /* Mejorada la animación y el ocultamiento para evitar "cuadro blanco" */
+    .card-content1,
+    .card-content2,
+    .card-content3,
+    .card-content4 {
+      margin-top: 1rem;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.35s cubic-bezier(.4,2,.6,1), padding 0.2s, opacity 0.2s;
+      padding: 0 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .card-content1.show,
+    .card-content2.show,
+    .card-content3.show,
+    .card-content4.show  {
+      height: auto;
+      max-height: 1000px; /* para animación fluida en navegadores modernos */
+      padding: 1rem 0;
+      opacity: 1;
+      pointer-events: auto;
+      animation: fadeIn 0.5s;
+    }
+
+    .change-item {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .change-item i {
+      margin-right: 10px;
+    }
+
+    .change-item.new { color: #43a047; }
+    .change-item.fix { color: #e53935; }
+    .change-item.update { color: #1e88e5; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .important {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .important i {
+      color: white;
+      background-color: #00c040;
+      border-radius: 50%;
+      padding: 10px;
+      display: flex;
+      margin-left: 2px;
+      margin-top: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .important-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: #1d1d1d;
+      margin-left: 10px;
+      margin-top: 15px;
+    }
+
+    .text-important {
+      font-size: 14px;
+      color: gray;
+      margin-left: 55px;
+      font-weight: 400;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+
+
+
+
+
+    /*codigo de la Tarjeta de version actualmente*/
+
+    
+    .container {
+      width: 100%;
+      padding: 40px 5%;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: white;
+      padding: 36px;
+      margin-top: 25px; /*espacio entre el encabezado y la tarjeta*/
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      animation: fadeSlideIn 0.6s ease-out;
+      transition: all 0.4s ease;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.3s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      color: #3b82f6;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .version {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1d4ed8;
+      margin-bottom: 20px;
+    }
+
+    .info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 1rem;
+      color: #334155;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .info-section strong {
+      display: inline-block;
+      min-width: 140px;
+    }
+
+    ul.features {
+      padding-left: 20px;
+      margin: 8px 0 0 0;
+    }
+
+    ul.features li {
+      margin-bottom: 6px;
+    }
+
+    .timestamp {
+      font-size: 0.9rem;
+      color: #64748b;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .btn-toggle {
+      display: block;
+      margin-left: auto;
+      background: #1d4ed8;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-toggle:hover {
+      background: #1e40af;
+    }
+     
+    /*responsive de la tarjeta version actual*/
+    @media (max-width: 600px) {
+      .info-section {
+        font-size: 0.95rem;
+      }
+    }
+
+
+
+   /*historial de cambios*/
+
+    .page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+.page-header i {
+  color: #f59e0b;
+}
+
+
+
+
+/*Encabezado*/
+
+.encabezado-principal {
+  background: radial-gradient(circle at top left, #3b82f6, #2196f3); /*color de fondo del encabezado*/
+  padding: 100px 20px; /*relleno del encabezado*/
+  text-align: center; /*alinea el texto*/
+  color: #fff; /*color de letra*/
+  font-family: 'Poppins', sans-serif; /*tipo de familia de la letra*/
+  border-radius: 0 0 60px 60px; /*bordes redondeados de la parte inferior y superior 0*/
+  position: relative; 
+  overflow: hidden; /*oculta el contenido para que no exceda su tamaño*/
+}
+
+.encabezado {
+  max-width: 800px; /*minimo como ancho 800px del padre*/
+  margin: 0 auto; /*centra horizontalmente adentro del contenedor*/
+  z-index: 2; /*para surponer sobre otro*/
+  position: relative;
+}
+
+
+.encabezado h1 {
+  font-size: 46px; /*tamaño de la letra del titulo*/
+  margin-bottom: 20px; /*margin inferior de 20px*/
+  font-weight: 800;  /*peso de la letra */
+}
+
+.encabezado p {
+  font-size: 19px; /*tamaño de la letra de la letra*/
+  margin-bottom: 35px; /*margin inferior de 35px*/
+  color: #dbeafe; /*color de letra*/
+}
+
+.boton-historial {
+  background-color: #fff; /*color de fondo del boton*/
+  color: #1e3a8a; /*color de la letra*/
+  padding: 14px 28px; /*relleno del boton 14px de altura y de ancho 28px*/
+  border-radius: 10px; /*bordes redondeados*/
+  font-weight: 600; /*peso de la letra*/
+  text-decoration: none; /*elimina todo tipo de decoracion en el texto*/
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.boton-historial:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+
+/*codigo de funcion ala rueda con animacion*/
+
+.encabezado-principal::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(20px) translateX(20px);
+  }
+}
+
+/*footer*/
+
+
+
+        :root {
+            --color-primario: #007bff;
+            --color-secundario: #6c757d;
+            --color-texto: #343a40;
+            --color-texto-claro: #6f757b;
+            --color-fondo: #f8f9fa;
+            --color-blanco: #ffffff;
+            --color-borde: #e9ecef;
+
+            /* Colores del footer */
+            --footer-fondo: #feba0e;
+            --footer-texto: #343a40;
+            --footer-hover-link: #fff;
+            --footer-input-fondo: rgba(0,0,0,0.1);
+            --footer-placeholder: rgba(52,58,64,0.7);
+            --footer-borde: rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2196f3;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        footer {
+            background-color: var(--footer-fondo);
+            color: var(--footer-texto);
+            padding: 60px 0 30px;
+            font-size: 0.95em;
+            border-radius: 20px 20px 0 0;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--footer-texto);
+        }
+
+        .footer-col p {
+            color: var(--footer-texto);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--footer-texto);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--footer-hover-link);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links a:last-child {
+            margin-right: 0;
+        }
+
+        .social-links ion-icon {
+            font-size: 24px;
+            color: var(--footer-texto);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover ion-icon {
+            color: var(--color-primario);
+            transform: scale(1.1);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            color: var(--footer-texto);
+            font-size: 1em;
+            caret-color: var(--color-blanco);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--footer-placeholder);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-borde);
+            color: var(--footer-texto);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .language-selector .material-icons {
+            font-size: 24px;
+            color: var(--footer-texto);
+        }
+
+        .language-selector select {
+            font-size: 1em;
+            background: var(--footer-input-fondo);
+            color: var(--footer-texto);
+            border: 1px solid var(--footer-borde);
+            padding: 10px 15px;
+            border-radius: 7px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg...%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .language-selector select:focus {
+            outline: 2px solid var(--color-primario);
+            border-color: var(--color-primario);
+        }
+        /*Responsive del footer*/
+        @media (max-width: 768px) {
+            .footer-columns {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                justify-content: center;
+            }
+        }
+  </style>
+</head>
+<body>
+
+    <!-- encabezado -->
+    <header class="encabezado-principal">
+  <div class="encabezado">
+    <h1>Actualización de Versiones</h1>
+    <p>"Explora en detalle cada mejora, corrección y nueva función implementada en las distintas versiones de nuestro sistema"</p>
+    <a href="historial.V.html" class="boton-historial">Explorar Historial</a>
+  </div>
+</header>
+
+   
+    
+
+       <!-- Tarjeta de Version Actual -->
+  <div class="container">
+    <div class="card" id="card">
+      <div class="header">
+        <div class="icon" id="icon"></div>
+        <div class="subtitle" id="subtitle"></div>
+      </div>
+
+      <div class="version" id="version">--</div>
+      <div class="info-section" id="infoBox"></div>
+      <div class="timestamp" id="timeInfo"></div>
+
+      <button class="btn-toggle" id="toggleBtn" onclick="alternarVista()">Ver próxima versión</button>
+    </div>
+  </div>
+
+
+
+<main class="changelog-layout">
+  <!-- Tarjeta 1 -->
+  <section class="changelog-card1" data-version="pre-alpha 0.3.0">
+    <div class="card-top-row">
+      <h2>V: Pre-alpha 0.3.0</h2>
+      <div class="status-block">
+        <div class="status-icons">
+          <div class="verified"><i class="fas fa-circle-check"></i><span class="verified-text">VERIFICADO</span></div>
+          <div class="text-desar"><p>Brayan el desarrollador<br>verificó la Actualización</p></div>
+          <div class="notification"><i class="fas fa-bell"></i><span class="notification-title">NOTIFICACIÓN</span></div>
+          <div class="text-notif"><p>Ya puedes ver la actualización<br> abajo en el boton.</p></div>
+          <div class="vertical-line"></div>
+          <div class="important"><i class="fas fa-magic"></i><span class="important-title">MEJORAS</span></div>
+          <div class="text-important"><p>Se incorporaron mejoras como aviso legal, modo oscuro, traductor, nuevo menú lateral, servidores optimizados y mayor seguridad en el sistema y mejor rendimiento.</p></div>
+        </div>
+        <button class="toggle-btn" data-btn="1">Más mejoras<i class="fas fa-chevron-down"></i></button>
+        <span class="time">1 jul, 2025</span>
+      </div>
+    </div>
+    <div class="card-content1"></div>
+  </section>
+
+  <!-- Tarjeta 2 -->
+  <section class="changelog-card2" data-version="pre-alpha 0.4.2">
+    <div class="card-top-row">
+      <h2>V: Pre-alpha 0.4.2</h2>
+      <div class="status-block">
+        <div class="status-icons">
+          <div class="verified"><i class="fas fa-circle-check"></i><span class="verified-text">VERIFICADO</span></div>
+          <div class="text-desar"><p>Brayan el desarrollador<br>verificó la Actualización</p></div>
+          <div class="notification"><i class="fas fa-bell"></i><span class="notification-title">NOTIFICACIÓN</span></div>
+          <div class="text-notif"><p>Ya puedes ver la actualización<br> abajo en el boton.</p></div>
+          <div class="vertical-line"></div>
+          <div class="important"><i class="fas fa-magic"></i><span class="important-title">MEJORAS</span></div>
+          <div class="text-important"><p>Se añadieron funciones para ver perfiles y empresas registradas, nuevos buscadores, mejoras en el diseño y corrección de errores o bugs en el registro y el traductor.</p></div>
+        </div>
+        <button class="toggle-btn" data-btn="2">Más mejoras <i class="fas fa-chevron-down"></i></button>
+        <span class="time">30 jun, 2025</span>
+      </div>
+    </div>
+    <div class="card-content2"></div>
+  </section>
+
+  <!-- Tarjeta 3 -->
+  <section class="changelog-card3" data-version="pre-alpha 0.5.5">
+    <div class="card-top-row">
+      <h2>V: Alpha 0.5.5</h2>
+      <div class="status-block">
+        <div class="status-icons">
+          <div class="verified"><i class="fas fa-circle-check"></i><span class="verified-text">VERIFICADO</span></div>
+          <div class="text-desar"><p>Brayan el desarrollador<br>verificó la Actualización</p></div>
+          <div class="notification"><i class="fas fa-bell"></i><span class="notification-title">NOTIFICACIÓN</span></div>
+          <div class="text-notif"><p>Ya puedes ver la actualización<br> abajo en el boton.</p></div>
+          <div class="vertical-line"></div>
+          <div class="important"><i class="fas fa-magic"></i><span class="important-title">MEJORAS</span></div>
+          <div class="text-important"><p>Se integraron paneles de administración para usuarios, empresas y desarrolladores, verificación y registro de empresas, un calendario para eventos, mejoras visuales.</p></div>
+        </div>
+        <button class="toggle-btn" data-btn="3">Más mejoras <i class="fas fa-chevron-down"></i></button>
+        <span class="time">28 oct, 2027</span>
+      </div>
+    </div>
+    <div class="card-content3"></div>
+  </section>
+
+<!-- Tarjeta 4 -->
+  <section class="changelog-card4" data-version="pre-alpha 0.6.5">
+    <div class="card-top-row">
+      <h2>V: Alpha 0.6.5</h2>
+      <div class="status-block">
+        <div class="status-icons">
+          <div class="verified"><i class="fas fa-circle-check"></i><span class="verified-text">VERIFICADO</span></div>
+          <div class="text-desar"><p>Brayan el desarrollador<br>verificó la Actualización</p></div>
+          <div class="notification"><i class="fas fa-bell"></i><span class="notification-title">NOTIFICACIÓN</span></div>
+          <div class="text-notif"><p>Ya puedes ver la actualización<br> abajo en el boton.</p></div>
+          <div class="vertical-line"></div>
+          <div class="important"><i class="fas fa-magic"></i><span class="important-title">MEJORAS</span></div>
+          <div class="text-important"><p>Se integraron paneles de administración para usuarios, empresas y desarrolladores, verificación y registro de empresas, un calendario para eventos, mejoras visuales.</p></div>
+        </div>
+        <button class="toggle-btn" data-btn="3">Más mejoras <i class="fas fa-chevron-down"></i></button>
+        <span class="time">20 jun, 2025</span>
+      </div>
+    </div>
+    <div class="card-content4"></div>
+  </section>
+
+</main>
+
+
+
+   <!--footer-->
+
+    <div style="flex-grow: 1;"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>S-EMPRESA</h4>
+                    <p>El uso inadecuado de las aplicaciones o intentos de hackeo resultarán en la suspensión permanente del sitio y los usuarios.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                        <a href="#" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Versiones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Avisos</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Suscríbete para recibir actualizaciones directamente en tu correo.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit">Suscribir</button>
+                    </form>
+                    <div class="language-selector">
+                        <span class="material-icons">language</span>
+                        <select id="languageSelect">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="pt">Português</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> S-EMPRESA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </footer>
+
+
+
+<script>
+  // Datos de cambios por versión
+const changelogData = {
+  "pre-alpha 0.3.0": [
+    { type: "new", text: "Implementacion de aviso de Terminos y Privacidad y condiciones." },
+    { type: "new", text: "Implementación de traductor." },
+    { type: "new", text: "Nuevo menu lateral." },
+    { type: "new", text: "Modo Oscuro." },
+    { type: "update", text: "Nuevo servidor “Codespace”." },
+    { type: "update", text: "Servidor de imágenes." },
+    { type: "update", text: "Más seguridad contra inyecciones SQL." },
+    { type: "update", text: "Mejor rendimiento." },
+    { type: "update", text: "Restricciones en formulario de registro." }
+  ],
+  "pre-alpha 0.4.2": [
+    { type: "new", text: "Ver perfiles." },
+    { type: "new", text: "Ver empresas." },
+    { type: "new", text: "Buscador de Empresas." },
+    { type: "new", text: "Buscador en el menu lateral." },
+    { type: "new", text: "Retroceso en la barra lateral." },
+    { type: "update", text: "Diseño en la pagina principal." },
+    { type: "update", text: "Correcion en el bug de ya hay usuario." },
+    { type: "update", text: "Correcion en el bug de diseño en el traductor." },
+  ],
+  "pre-alpha 0.5.5": [
+    { type: "new", text: "Implementacion de administración de usuarios." },
+    { type: "new", text: "Implementacion de administración de empresas." },
+    { type: "new", text: "Implementacion de registro de empresas." },
+    { type: "new", text: "Implementacion de verificación de empresa." },
+    { type: "new", text: "Implementacion de envió de actualización." },
+    { type: "new", text: "Implementacion de empresa dentro de la pagina." },
+    { type: "new", text: "Implementacion de diseño para historias (anuncios, productos, variedades)" },
+    { type: "new", text: "Implementacion de calendario interactivo para eventos (Solo para administradores)" },
+    { type: "new", text: "Implementacion de administración de desarrolladores." },
+    { type: "update", text: "Menu para administradores." },
+    { type: "update", text: "Diseño diferente en como se ven las empresas." },
+    { type: "update", text: "Correccion de bugs en diseño." },
+    
+
+  ],
+  "pre-alpha 0.6.5": [
+    { type: "new", text: "Implementacion de administración de usuarios." },
+    { type: "new", text: "Implementacion de administración de empresas." },
+    { type: "new", text: "Implementacion de registro de empresas." },
+    { type: "new", text: "Implementacion de verificación de empresa." },
+    { type: "new", text: "Implementacion de envió de actualización." },
+    { type: "new", text: "Implementacion de empresa dentro de la pagina." },
+    { type: "new", text: "Implementacion de diseño para historias (anuncios, productos, variedades)" },
+    { type: "new", text: "Implementacion de calendario interactivo para eventos (Solo para administradores)" },
+    { type: "new", text: "Implementacion de administración de desarrolladores." },
+    { type: "update", text: "Menu para administradores." },
+    { type: "update", text: "Diseño diferente en como se ven las empresas." },
+    { type: "update", text: "Correccion de bugs en diseño." },
+    
+
+  ]
+};
+
+// Función para obtener el ícono según el tipo de cambio
+function getIcon(type) {
+  return {
+    new: "fa-plus-circle",
+    fix: "fa-bug",
+    update: "fa-sync-alt"
+  }[type] || "fa-info-circle";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cardMap = [
+    {
+      cardClass: "changelog-card1",
+      contentClass: "card-content1",
+      version: "pre-alpha 0.3.0"
+    },
+    {
+      cardClass: "changelog-card2",
+      contentClass: "card-content2",
+      version: "pre-alpha 0.4.2"
+    },
+    {
+      cardClass: "changelog-card3",
+      contentClass: "card-content3",
+      version: "pre-alpha 0.5.5"
+    },
+    {
+      cardClass: "changelog-card4",
+      contentClass: "card-content4",
+      version: "pre-alpha 0.6.5"
+    }
+  ];
+
+  cardMap.forEach(({ cardClass, contentClass, version }, idx) => {
+    const card = document.querySelector(`.${cardClass}`);
+    const content = card.querySelector(`.${contentClass}`);
+    const btn = card.querySelector(".toggle-btn");
+    const changes = changelogData[version] || [];
+
+    // Cargar los cambios si no están cargados
+    if (!content.dataset.loaded) {
+      changes.forEach(change => {
+        const div = document.createElement("div");
+        div.className = `change-item ${change.type}`;
+        div.innerHTML = `<i class="fas ${getIcon(change.type)}"></i> ${change.text}`;
+        content.appendChild(div);
+      });
+      content.dataset.loaded = "true";
+    }
+
+    btn.addEventListener("click", () => {
+      // Cerrar las otras tarjetas
+      cardMap.forEach(({ cardClass: otherClass, contentClass: otherContentClass }, i) => {
+        const otherCard = document.querySelector(`.${otherClass}`);
+        const otherContent = otherCard.querySelector(`.${otherContentClass}`);
+        const otherBtn = otherCard.querySelector(".toggle-btn");
+        if (i !== idx) {
+          otherContent.classList.remove("show");
+          otherBtn.innerHTML = 'Ver mejoras <i class="fas fa-chevron-down"></i>';
+        }
+      });
+
+      // Alternar la actual
+      content.classList.toggle("show");
+      btn.innerHTML = content.classList.contains("show")
+        ? 'Ocultar mejoras <i class="fas fa-chevron-up"></i>'
+        : 'Ver mejoras <i class="fas fa-chevron-down"></i>';
+    });
+  });
+});
+
+
+
+
+
+
+
+
+ //  CODIGO DE LA VENTANA DE VERSION ACTUAL
+
+ const actual = {
+      version: "V: Alpha 0.6.5",
+      fecha: new Date().toLocaleDateString(),
+    };
+
+    const proxima = {
+      version: "V: Alpha 0.7.2",
+      fechaLanzamiento: "2025-06-23T12:00:00",
+      caracteristicas: [
+        "Más seguridad contra inyecciones SQL",
+        "Diseño adaptable y dinamico",
+        "Mejoras en las APIs",
+        "Correcciones de errores fatales",
+        "Mini inteligencia artificial"
+      ]
+    };
+
+    let mostrandoFutura = false;
+
+    function alternarVista() {
+      const card = document.getElementById('card');
+      card.classList.add('fade-out');
+
+      setTimeout(() => {
+        const icon = document.getElementById('icon');
+        const subtitle = document.getElementById('subtitle');
+        const version = document.getElementById('version');
+        const infoBox = document.getElementById('infoBox');
+        const timeInfo = document.getElementById('timeInfo');
+        const btn = document.getElementById('toggleBtn');
+
+        if (!mostrandoFutura) {
+          const diasRestantes = Math.ceil(
+            (new Date(proxima.fechaLanzamiento) - new Date()) / (1000 * 60 * 60 * 24)
+          );
+
+          icon.innerHTML = '<i data-lucide="clock" style="width: 36px; height: 36px;"></i>';
+          subtitle.textContent = "Versión en preparación";
+          version.textContent = proxima.version;
+          infoBox.innerHTML = `
+            <div><strong>Fecha estimada:</strong> ${new Date(proxima.fechaLanzamiento).toLocaleDateString()}</div>
+            <div><strong>Características:</strong>
+              <ul class="features">
+                ${proxima.caracteristicas.map(c => `<li>✔️ ${c}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+          timeInfo.textContent = `Disponible en ${diasRestantes} días`;
+          btn.textContent = "Volver a versión actual";
+        } else {
+          icon.innerHTML = '<i data-lucide="check-circle" style="width: 36px; height: 36px;"></i>';
+          subtitle.textContent = "Versión actual en producción";
+          version.textContent = actual.version;
+          infoBox.innerHTML = `
+            <div><strong>Estado:</strong> Estable y operativo</div>
+            <div><strong>Última actualización:</strong> ${actual.fecha}</div>
+          `;
+          timeInfo.textContent = "";
+          btn.textContent = "Ver próxima versión";
+        }
+
+        mostrandoFutura = !mostrandoFutura;
+        lucide.createIcons();
+
+        card.classList.remove('fade-out');
+        card.classList.remove('fade-in');
+        void card.offsetWidth; // reinicia animación
+        card.classList.add('fade-in');
+      }, 300);
+    }
+
+    window.onload = () => {
+      alternarVista(); // Carga inicial
+      alternarVista(); // Muestra actual
+    };
+
+
+
+
+    // FOOTER
+
+      document.addEventListener('DOMContentLoaded', function () {
+            // Mostrar el año actual
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Función del selector de idioma
+            document.getElementById('languageSelect').addEventListener('change', function () {
+                const lang = this.value;
+                console.log('Idioma seleccionado:', lang);
+            });
+
+            // Envío del formulario del newsletter
+            document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert('¡Gracias por suscribirte!');
+                this.querySelector('input[type="email"]').value = '';
+            });
+        });
+</script>
+
+
+        
+
+
+
+</body>
+</html>
